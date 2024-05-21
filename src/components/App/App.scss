@@ -1,5 +1,24 @@
 .App {
   img {
-    width: 200px;
+    width: 150px;
+  }
+  margin: 0 auto;
+  background-color: #ecf0f1;
+  padding: 1rem;
+  width: 500px;
+  min-height: 100vh;
+
+  .logo {
+    text-align: center;
+
+    img {
+      width: 150px;
+    }
+  }
+
+  h2 {
+    color: #0f1231;
+    font-size: 2em;
+    text-align: center;
   }
 }
