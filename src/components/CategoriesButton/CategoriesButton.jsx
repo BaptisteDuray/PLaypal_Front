@@ -1,29 +1,16 @@
-import { Button, Segment } from 'semantic-ui-react';
+import Button from './Button';
+import './CategoriesButton.scss';
 
 const CategoriesButton = () => {
   return (
-    <>
-      <Segment>
-        <Button inverted color="red">
-          Catégorie
-        </Button>
-        <Button inverted color="red">
-          Catégorie
-        </Button>
-        <Button inverted color="red">
-          Catégorie
-        </Button>
-        <Button inverted color="red">
-          Catégorie
-        </Button>
-        <Button inverted color="red">
-          Catégorie
-        </Button>
-        <Button inverted color="red">
-          Catégorie
-        </Button>
-      </Segment>
-    </>
+    <div className="CategoriesButton">
+      <Button />
+      <Button />
+      <Button />
+      <Button />
+      <Button />
+      <Button />
+    </div>
   );
 };
 

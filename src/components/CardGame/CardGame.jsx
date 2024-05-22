@@ -1,13 +1,12 @@
-import { CardGroup } from 'semantic-ui-react';
-import Game from './Game';
+import './CardGame.scss';
 
-const CardGame = () => {
-  return (
-    <CardGroup itemsPerRow={3}>
-      <Game />
-      <Game />
-    </CardGroup>
-  );
-};
+const CardGame = () => (
+  <article className="card">
+    <img className="card-img" src="https://randomfox.ca/images/5.jpg" alt="" />
+    <div className="card-content">
+      <h2 className="card-title">titre</h2>
+    </div>
+  </article>
+);
 
 export default CardGame;
