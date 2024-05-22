@@ -8,6 +8,7 @@ import Home from '../Home/Home';
 import ContactPage from '../Contact/ContactPage';
 import HeaderMenu from '../HeaderMenu/HeaderMenu';
 import MenuFooter from '../MenuFooter/MenuFooter';
+import NavigationMobile from '../NavigationMobile/NavigationMobile';
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/Contact" element={<ContactPage />} />
       </Routes>
-      <MenuFooter />
+      <NavigationMobile />
     </div>
   );
 }

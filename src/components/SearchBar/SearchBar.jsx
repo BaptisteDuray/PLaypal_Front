@@ -2,6 +2,8 @@ import './SearchBar.scss';
 
 import { Input, Form, FormField, Segment } from 'semantic-ui-react';
 
+//import image from '../../assets/image/background-img.jpg';
+
 const SearchBar = () => {
   return (
     <div className="SearchBar">

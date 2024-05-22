@@ -12,7 +12,7 @@ const HeaderMenu = () => {
         <Grid columns={2} padded>
           <GridColumn>
             <Link to="/">
-              <img src={logo} className="App-logo" alt="logo" />
+              <img src={logo} className="App-logo" alt="Playpal" />
             </Link>
           </GridColumn>
           <GridColumn>
