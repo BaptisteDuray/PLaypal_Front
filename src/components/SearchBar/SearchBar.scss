@@ -1,9 +1,18 @@
-.SearchBar {
-  height: 50vh;
+.SectionSearch {
+  height: 100vh;
   width: auto;
   background-image: url('../../assets/image/background-img.jpg');
   background-size: cover;
   background-position: center;
 
-  align-content: center;
+  h1 {
+    margin-left: 2em;
+    font-size: 6vh;
+  }
+
+  .SearchBar {
+    margin-left: 3em;
+    margin-right: 2em;
+    margin-top: 5em;
+  }
 }
