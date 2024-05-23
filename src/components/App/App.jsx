@@ -3,7 +3,6 @@ import { Route, Routes } from 'react-router';
 
 import './App.scss';
 
-import './App.scss';
 import Home from '../Home/Home';
 import ContactPage from '../Contact/ContactPage';
 import HeaderMenu from '../HeaderMenu/HeaderMenu';

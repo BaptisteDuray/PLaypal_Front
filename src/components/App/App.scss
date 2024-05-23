@@ -1,3 +1,5 @@
+@import '/src/styles/variables';
+
 .App {
   box-sizing: border-box;
 
@@ -5,10 +7,7 @@
     width: 150px;
   }
   margin: 0 auto;
-  background-color: #ecf0f1;
-
-  width: 500px;
-  min-height: 100vh;
+  background-color: #ffffff;
 
   .logo {
     text-align: center;
@@ -19,7 +18,7 @@
   }
 
   h2 {
-    color: #0f1231;
+    color: $primary-color;
     font-size: 2em;
     text-align: center;
   }
