@@ -9,19 +9,19 @@ const NavigationMobile = () => {
       </div>
       <div className="BlocIcon">
         <img src="/src/assets/icon/fav2.png" alt="favoris" />
-        <p>Mes favoris</p>
+        <span>Mes favoris</span>
       </div>
       <div className="BlocIcon">
         <img src="/src/assets/icon/loupe-icone2.png" alt="loupe recherche" />
-        <p>Recherches</p>
+        <span>Recherches</span>
       </div>
       <div className="BlocIcon">
         <img src="/src/assets/icon/agenda-icon2.png" alt="agenda" />
-        <p>Mes réservation</p>
+        <span>Mes réservation</span>
       </div>
       <div className="BlocIcon">
         <img src="/src/assets/icon/avatar2.png" alt="compte" />
-        <p>connexion</p>
+        <span>connexion</span>
       </div>
     </div>
   );
