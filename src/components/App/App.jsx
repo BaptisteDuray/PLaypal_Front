@@ -10,6 +10,7 @@ import ContactPage from '../Contact/ContactPage';
 import HeaderMenu from '../HeaderMenu/HeaderMenu';
 import MenuFooter from '../MenuFooter/MenuFooter';
 import NavigationMobile from '../NavigationMobile/NavigationMobile';
+import Settings from '../Settings/Settings';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/Contact" element={<ContactPage />} />
         <Route path="/liste-de-jeux" element={<GamesList />} />
         <Route path="/nom-du-jeu" element={<GamePage />} />
+        <Route path="/Connexion" element={<Settings />} />
       </Routes>
       <NavigationMobile />
     </div>

@@ -8,13 +8,6 @@ const HeaderButton = () => {
       <Link className="btnGrad" to="/Contact">
         Contact
       </Link>
-
-      <Link className="btnGrad" to="/Inscription">
-        Inscription
-      </Link>
-      <Link className="btnGrad" to="/Connexion">
-        Connexion
-      </Link>
     </div>
   );
 };
