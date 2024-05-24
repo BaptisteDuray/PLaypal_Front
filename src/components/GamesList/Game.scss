@@ -1,10 +1,58 @@
 @import '/src/styles/variables';
 
-.card {
+.cardList {
   justify-content: center;
-  background-color: rgb(192, 192, 192);
+  background-color: rgb(255, 255, 255);
   height: 12rem;
   width: auto;
   margin-top: 1rem;
+  margin-bottom: 1rem;
   border-radius: 0;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+
+  .game-image {
+    background-color: $primary-color;
+    width: 10rem;
+    justify-content: center;
+
+    img {
+      margin-top: 1rem;
+    }
+    .btn-view-game {
+      padding: 10px;
+      background-color: $secondary-color;
+      color: rgb(255, 255, 255);
+      border: none;
+      border-radius: 10px;
+      margin-left: 2rem;
+      margin-top: 0.2rem;
+    }
+  }
+
+  .informations {
+    margin: 10px;
+    h3 {
+      font-family: 'Alfa Slab One', serif;
+      color: $primary-color;
+    }
+
+    p {
+      margin-top: 15px;
+      color: $primary-color;
+      font-family: 'Akshar', sans-serif;
+    }
+    .tags-games-list {
+      margin-top: 15px;
+      color: $primary-color;
+      font-family: 'Akshar', sans-serif;
+      font-weight: 500;
+    }
+    .price-games-list {
+      margin-top: 15px;
+      color: $primary-color;
+      font-family: 'Akshar', sans-serif;
+      font-weight: 700;
+    }
+  }
 }
