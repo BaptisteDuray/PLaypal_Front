@@ -1,10 +1,6 @@
+@import '/src/styles/variables';
 .CardLink {
-  background-image: linear-gradient(
-    to right,
-    #2b5876 0%,
-    #3c325e 51%,
-    #2b5876 100%
-  );
+  background-color: #c3e4f5;
   margin: 10px;
   padding: 15px;
   text-align: center;
@@ -12,12 +8,12 @@
   transition: 0.5s;
   //background-size: 50% auto;
   color: white;
-  box-shadow: 0 0 20px #eee;
+  box-shadow: 0 0 50px #eee;
   border-radius: 10px;
   display: block;
 
   h2 {
-    color: white;
+    color: $primary-color;
     font-family: 'Alfa Slab One', serif;
     font-size: 15px;
   }
