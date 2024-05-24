@@ -22,6 +22,8 @@ const GamesList = () => {
         <p className="tags-games-list">les tags</p>
         <strong className="price-games-list">à partir de 10€</strong>
       </div>
+
+      <div className="available-tag"> ●Disponible</div>
     </div>
   );
 };
