@@ -1,9 +1,21 @@
-.SearchBar {
-  height: 50vh;
+@import '/src/styles/variables';
+.SectionSearch {
+  height: 100vh;
   width: auto;
   background-image: url('../../assets/image/background-img.jpg');
   background-size: cover;
   background-position: center;
 
-  align-content: center;
+  h1 {
+    margin-left: 2em;
+    color: $primary-color;
+    font-size: 6vh;
+    font-family: 'Alfa Slab One', serif;
+  }
+
+  .SearchBar {
+    margin-left: 3em;
+    margin-right: 2em;
+    margin-top: 4em;
+  }
 }
