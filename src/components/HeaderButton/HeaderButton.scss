@@ -1,24 +1,11 @@
+@import '/src/styles/variables';
+// ce menu est visible uniqument en version desktop
 .btnGrad {
-  background-image: linear-gradient(to right, #ff323e 0%, #ff323e 51%);
-  margin: 5px;
-  padding: 5px;
-  text-align: center;
-  //text-transform: uppercase;
-  transition: 0.5s;
-  //background-size: 50% auto;
-  color: white;
-  box-shadow: 0 0 20px #eee;
-  border-radius: 15px;
+  text-align: end;
+  font-family: 'Alfa Slab One', serif;
+
+  color: $primary-color;
+  padding: 0.5rem;
+
   display: block;
-}
-
-.btnGrad:hover {
-  background-position: right center; /* change the direction of the change here */
-  color: #0f1231;
-  text-decoration: none;
-}
-
-.HeaderButton {
-  display: inline;
-  flex-wrap: wrap;
 }
