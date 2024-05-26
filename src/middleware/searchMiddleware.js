@@ -1,11 +1,14 @@
 import { SUBMIT_SEARCH } from '../actions/search';
 
 const searchMiddleware = (store) => (next) => (action) => {
-  // le middleware réagit à certains types d'actions
+  /* case SUBMIT_SEARCH:
+    console.log('oh, une action SUBMIT_SEARCH');
+ 
+  /* le middleware réagit à certains types d'actions
   if (action.type === SUBMIT_SEARCH) {
     console.log('oh, une action SUBMIT_LOGIN');
     // on envoie une requête de type POST au serveur
-    /* axios
+    axios
       .get(
         // URL
         //'http://localhost:3001/login',
@@ -22,8 +25,12 @@ const searchMiddleware = (store) => (next) => (action) => {
       })
       .catch((error) => {
         console.log(error);
-      });*/
+      });
+
+      break;
+      default:
   }
+  */
   next(action);
 };
 
