@@ -1,7 +1,7 @@
 import Field from '../Field/Field';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { changeSettingsField } from '../../actions/search';
+import { changeSettingsField, submitLogin } from '../../actions/search';
 
 import './Settings.scss';
 
@@ -13,7 +13,16 @@ const Settings = () => {
 
   return (
     <div className="settings">
-      <form className="settings-form">
+      <form
+        className="settings-form"
+        onSubmit={(event) => {
+          event.preventDefault();
+          // console.log('submit');
+          /* on envoie une action, qui déclenchera une requete en passant par
+        authMiddleware */
+          dispatch(submitLogin());
+        }}
+      >
         <Field
           identifier="email"
           placeholder="uno@playpal.fr"
@@ -38,7 +47,7 @@ const Settings = () => {
           value={passwordValue}
         />
         <button type="submit" className="settings-submit">
-          Envoyer
+          Se Connecter
         </button>
       </form>
     </div>

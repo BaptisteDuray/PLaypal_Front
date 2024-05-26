@@ -1,4 +1,8 @@
-import { CHANGE_INPUT_MESSAGE, CHANGE_SETTINGS_FIELD } from '../actions/search';
+import {
+  CHANGE_INPUT_MESSAGE,
+  CHANGE_SETTINGS_FIELD,
+  HANDLE_SUCCESSFUL_LOGIN,
+} from '../actions/search';
 
 const initialState = {
   // ici le state initial
@@ -7,6 +11,8 @@ const initialState = {
   email: '',
 
   password: '',
+
+  nickname: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -29,6 +35,15 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         password: action.value,
+      };
+
+    case HANDLE_SUCCESSFUL_LOGIN:
+      return {
+        ...state,
+        nickname: action.nickname,
+
+        email: '',
+        password: '',
       };
 
     default:
