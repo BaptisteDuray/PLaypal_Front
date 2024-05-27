@@ -1,1 +1,87 @@
 @import '/src/styles/variables';
+
+.cardgame-page {
+  justify-content: center;
+  margin: 2rem;
+
+  h3 {
+    font-family: 'Alfa Slab One', serif;
+    color: $primary-color;
+  }
+  .available-tag {
+    color: green;
+    font-family: 'Akshar', sans-serif;
+    font-weight: 100;
+  }
+  .game-image {
+    margin-top: 1rem;
+    width: 100%;
+    padding: 4rem;
+    background-color: $primary-color;
+    text-align: center;
+  }
+  .informations {
+    margin-top: 1rem;
+    font-family: 'Akshar', sans-serif;
+    .tags-games-list {
+      margin-top: 1rem;
+      color: $primary-color;
+      font-weight: 500;
+    }
+  }
+  .reservation {
+    margin-top: 1rem;
+    color: $primary-color;
+    font-family: 'Akshar', sans-serif;
+    justify-content: space-between;
+    display: flex;
+    label {
+      font-size: 20px;
+    }
+  }
+
+  .price-games-list {
+    font-size: 1.5rem;
+    color: $primary-color;
+    font-family: 'Alfa Slab One', serif;
+    text-align: center;
+  }
+  .btn {
+    margin-top: 2rem;
+    font-size: small;
+    justify-content: center;
+    display: flex;
+
+    .btn-reservation {
+      border: none;
+      padding: 20px;
+      margin-right: 1rem;
+      padding-left: 3rem;
+      padding-right: 3rem;
+      background-color: $secondary-color;
+      border-radius: 10px;
+      font-family: 'Alfa Slab One', serif;
+      color: white;
+    }
+    .btn-back {
+      border: none;
+
+      padding: 10px;
+      background-color: $secondary-color;
+      border-radius: 10px;
+      font-family: 'Alfa Slab One', serif;
+      color: white;
+    }
+  }
+
+  .fav-icon {
+    margin-top: 2rem;
+    justify-content: center;
+    display: flex;
+
+    img {
+      text-align: center;
+      width: 5rem;
+    }
+  }
+}
