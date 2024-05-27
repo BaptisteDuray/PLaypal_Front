@@ -1,12 +1,10 @@
-import logo from '../../assets/logo/LOGO PLAYPAL-carré-noir.png';
-
 import './Home.scss';
+import { Link } from 'react-router-dom';
+
 import SearchBar from '../SearchBar/SearchBar';
 import CategoriesButton from '../CategoriesButton/CategoriesButton';
 import CardGame from '../CardGame/CardGame';
 import MenuFooter from '../MenuFooter/MenuFooter';
-import { Link } from 'react-router-dom';
-import { GridColumn, Grid } from 'semantic-ui-react';
 
 const Home = () => {
   return (
@@ -22,9 +20,13 @@ const Home = () => {
         <h2>Les Nouveautés</h2>
       </Link>
       <div className="CardGame">
-        <CardGame />
-        <CardGame />
-        <CardGame />
+        <Link className="CardGameLink" to="/nom-du-jeu">
+          <CardGame />
+        </Link>
+
+        <Link className="CardGameLink" to="/nom-du-jeu">
+          <CardGame />
+        </Link>
       </div>
 
       <Link className="CardLink" to="/bonsplans">
@@ -32,9 +34,12 @@ const Home = () => {
       </Link>
 
       <div className="CardGame">
-        <CardGame />
-        <CardGame />
-        <CardGame />
+        <Link className="CardGameLink" to="/nom-du-jeu">
+          <CardGame />
+        </Link>
+        <Link className="CardGameLink" to="/nom-du-jeu">
+          <CardGame />
+        </Link>
       </div>
     </>
   );

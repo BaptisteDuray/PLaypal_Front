@@ -22,7 +22,7 @@ const NavigationMobile = () => {
 
       <a href="*" className="BlocIcon">
         <img src="/src/assets/icon/agenda-icon2.png" alt="agenda" />
-        <span>Mes réservation</span>
+        <span>Mes Locations</span>
       </a>
 
       <a href="*" className="BlocIcon">

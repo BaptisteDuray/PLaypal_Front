@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import logo from '../../assets/logo/LOGO PLAYPAL-carré-noir.png';
+import './HeaderMenu.scss';
 
 import HeaderButton from '../HeaderButton/HeaderButton';
 
@@ -9,9 +10,7 @@ const HeaderMenu = () => {
       <Link to="/">
         <img src={logo} className="App-logo" alt="Playpal" />
       </Link>
-      <Link className="btnGrad" to="/Contact">
-        Contact
-      </Link>
+      <HeaderButton />
     </header>
   );
 };

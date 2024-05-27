@@ -1,18 +1,17 @@
+@import '/src/styles/variables';
+
 .card {
-  border-radius: 1rem;
-
-  width: 25px;
-  margin-top: 5px;
-  padding: 5px;
-  overflow: hidden;
-
   justify-content: center;
-
-  // @media (max-width: ) {
-  width: 25%;
-  position: relative;
-}
-
-.card-title {
-  align-content: center;
+  margin: 0.3rem;
+  .game-image {
+    background-color: $primary-color;
+    text-align: center;
+    padding: 0.5rem;
+  }
+  .card-title {
+    font-family: 'Alfa Slab One', serif;
+    color: $primary-color;
+    font-size: 15px;
+    margin-top: 0.7rem;
+  }
 }

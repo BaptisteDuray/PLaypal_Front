@@ -1,11 +1,23 @@
 @import '/src/styles/variables';
 // ce menu est visible uniqument en version desktop
-.btnGrad {
-  text-align: end;
-  font-family: 'Alfa Slab One', serif;
 
-  color: $primary-color;
-  padding: 0.5rem;
+.HeaderButton {
+  justify-content: space-between;
+  display: flex;
+  padding-bottom: 1.5rem;
 
-  display: block;
+  .btnGrad {
+    font-family: 'Alfa Slab One', serif;
+    color: $primary-color;
+    padding: 0.5rem;
+    margin-left: 1.5rem;
+  }
+}
+
+/* Breakpoint pour les écrans de taille grande (1024) */
+/* fait apparaitre menu header pour les grand ecran */
+@media (max-width: 1024px) {
+  .HeaderButton {
+    display: none;
+  }
 }
