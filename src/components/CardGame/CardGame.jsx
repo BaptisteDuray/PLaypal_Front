@@ -1,11 +1,13 @@
 import './CardGame.scss';
+// image afficher par defaut si pas d'image
+import defaultImage from '../../assets/icon/pawn-icon.png';
 
 const CardGame = () => (
   <article className="card">
-    <img className="card-img" src="https://randomfox.ca/images/5.jpg" alt="" />
-    <div className="card-content">
-      <h2 className="card-title">titre</h2>
+    <div className="game-image">
+      <img src={defaultImage} alt="la boite du jeu" />
     </div>
+    <h2 className="card-title">Nom du jeu</h2>
   </article>
 );
 
