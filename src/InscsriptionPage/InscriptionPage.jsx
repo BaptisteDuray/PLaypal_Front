@@ -29,7 +29,7 @@ const InscriptionPage = () => {
             // console.log('submit');
             /* on envoie une action, qui déclenchera une requete en passant par
         authMiddleware */
-            dispatch(submitLogin());
+            dispatch(submitInscription());
           }}
         >
           <Field

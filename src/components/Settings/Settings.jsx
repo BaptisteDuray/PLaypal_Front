@@ -47,14 +47,18 @@ const Settings = () => {
           type="password"
           value={passwordValue}
         />
-        <button type="submit" className="settings-submit">
-          Se Connecter
-        </button>
-        <div>
-          Nouveau chez Playpal?
-          <button type="submit" className="settings-submit">
-            <Link to="/Inscription">Créez votre compte Playpal</Link>
-          </button>
+        <div className="settings-button-submit">
+          <div>
+            <button type="submit" className="settings-submit">
+              Se Connecter
+            </button>
+          </div>
+          <p>Nouveau chez Playpal ?</p>
+          <div>
+            <button type="submit" className="settings-submit">
+              <Link to="/Inscription">Créez votre compte Playpal</Link>
+            </button>
+          </div>
         </div>
       </form>
     </div>
