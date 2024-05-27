@@ -24,3 +24,13 @@
   color: #0f1231;
   text-decoration: none;
 }
+
+/* Breakpoint pour les écrans de taille grande (1024) */
+/* fait disparaitre la sticky barre */
+@media (min-width: 1024px) {
+  .CardLink {
+    max-width: 650px;
+    margin: auto;
+    margin-bottom: 10px;
+  }
+}

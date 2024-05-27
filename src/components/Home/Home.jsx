@@ -1,12 +1,10 @@
-import logo from '../../assets/logo/LOGO PLAYPAL-carré-noir.png';
-
 import './Home.scss';
+import { Link } from 'react-router-dom';
+
 import SearchBar from '../SearchBar/SearchBar';
 import CategoriesButton from '../CategoriesButton/CategoriesButton';
 import CardGame from '../CardGame/CardGame';
 import MenuFooter from '../MenuFooter/MenuFooter';
-import { Link } from 'react-router-dom';
-import { GridColumn, Grid } from 'semantic-ui-react';
 
 const Home = () => {
   return (

@@ -22,6 +22,7 @@ function App() {
         <Route path="/nom-du-jeu" element={<GamePage />} />
       </Routes>
       <NavigationMobile />
+      <MenuFooter />
     </div>
   );
 }

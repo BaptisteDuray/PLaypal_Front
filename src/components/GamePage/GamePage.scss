@@ -2,7 +2,7 @@
 
 .cardgame-page {
   justify-content: center;
-  margin: 2rem;
+  margin: 3rem;
 
   h3 {
     font-family: 'Alfa Slab One', serif;
@@ -35,6 +35,7 @@
     font-family: 'Akshar', sans-serif;
     justify-content: space-between;
     display: flex;
+
     label {
       font-size: 20px;
     }
@@ -82,6 +83,24 @@
     img {
       text-align: center;
       width: 5rem;
+    }
+  }
+}
+
+/* Breakpoint pour les écrans de taille grande (1024) */
+/* fait disparaitre la sticky barre */
+@media (min-width: 1024px) {
+  .cardgame-page {
+    justify-content: space-between;
+    display: flex;
+    margin-left: 10rem;
+    margin-right: 10rem;
+    max-width: 800px;
+    .article-desktop-left {
+    }
+    .article-desktop-right {
+      padding: 2rem;
+      max-width: 500px;
     }
   }
 }
