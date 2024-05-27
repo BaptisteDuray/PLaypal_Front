@@ -1,5 +1,6 @@
 import './Game.scss';
 // image afficher par defaut si pas d'image
+import { Link } from 'react-router-dom';
 import defaultImage from '../../assets/icon/pawn-icon.png';
 
 const GamesList = () => {
@@ -7,9 +8,12 @@ const GamesList = () => {
     <div className="cardList">
       <div className="game-image">
         <img src={defaultImage} alt="la boite du jeu" />
-        <button className="btn-view-game" type="button">
-          voir le jeu
-        </button>
+
+        <Link className="CardGameLink" to="/nom-du-jeu">
+          <button className="btn-view-game" type="button">
+            voir le jeu
+          </button>
+        </Link>
       </div>
 
       <div className="informations">
