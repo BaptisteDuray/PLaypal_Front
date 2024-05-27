@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import logo from '../../assets/logo/LOGO PLAYPAL-carré-noir.png';
+import './HeaderMenu.scss';
 
 import HeaderButton from '../HeaderButton/HeaderButton';
 
