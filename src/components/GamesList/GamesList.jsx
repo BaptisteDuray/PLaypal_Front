@@ -11,8 +11,6 @@ const GamesList = () => {
       <Game />
       <Game />
       <Game />
-      <Game />
-      <Game />
     </div>
   );
 };

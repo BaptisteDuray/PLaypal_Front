@@ -3,7 +3,7 @@
 .cardList {
   justify-content: center;
   background-color: rgb(255, 255, 255);
-  height: 12rem;
+  height: 14rem;
   width: auto;
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -13,11 +13,11 @@
 
   .game-image {
     background-color: $primary-color;
-    width: 20rem;
     text-align: center;
 
     img {
       margin-top: 1rem;
+      text-align: center;
     }
     .btn-view-game {
       padding: 10px;
