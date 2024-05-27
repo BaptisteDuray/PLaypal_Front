@@ -22,8 +22,13 @@ const Home = () => {
         <h2>Les Nouveautés</h2>
       </Link>
       <div className="CardGame">
-        <CardGame />
-        <CardGame />
+        <Link className="CardGameLink" to="/nom-du-jeu">
+          <CardGame />
+        </Link>
+
+        <Link className="CardGameLink" to="/nom-du-jeu">
+          <CardGame />
+        </Link>
       </div>
 
       <Link className="CardLink" to="/bonsplans">
@@ -31,8 +36,12 @@ const Home = () => {
       </Link>
 
       <div className="CardGame">
-        <CardGame />
-        <CardGame />
+        <Link className="CardGameLink" to="/nom-du-jeu">
+          <CardGame />
+        </Link>
+        <Link className="CardGameLink" to="/nom-du-jeu">
+          <CardGame />
+        </Link>
       </div>
     </>
   );
