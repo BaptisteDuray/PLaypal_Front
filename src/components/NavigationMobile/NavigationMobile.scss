@@ -26,3 +26,10 @@
     margin-top: 3px;
   }
 }
+/* Breakpoint pour les écrans de taille grande (1024) */
+/* fait disparaitre la sticky barre */
+@media (min-width: 1024px) {
+  .NavigationMobile {
+    display: none;
+  }
+}

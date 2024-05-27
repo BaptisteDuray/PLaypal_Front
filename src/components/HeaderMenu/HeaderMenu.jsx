@@ -9,9 +9,7 @@ const HeaderMenu = () => {
       <Link to="/">
         <img src={logo} className="App-logo" alt="Playpal" />
       </Link>
-      <Link className="btnGrad" to="/Contact">
-        Contact
-      </Link>
+      <HeaderButton />
     </header>
   );
 };

@@ -13,11 +13,12 @@
 
   .game-image {
     background-color: $primary-color;
-    text-align: center;
-
+    width: 15rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     img {
       margin-top: 1rem;
-      text-align: center;
     }
     .btn-view-game {
       padding: 10px;
@@ -25,7 +26,6 @@
       color: rgb(255, 255, 255);
       border: none;
       border-radius: 10px;
-
       margin-top: 0.2rem;
     }
   }

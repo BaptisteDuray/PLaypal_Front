@@ -1,11 +1,40 @@
 @import '/src/styles/variables';
 
-.gamesList {
-  justify-content: center;
-  .title {
-    color: $primary-color;
-    font-family: 'Alfa Slab One', serif;
-    font-size: 17px;
-    text-align: center;
+.game-list-desktop {
+  justify-content: space-between;
+  display: flex;
+  height: 600px;
+
+  .gamesList {
+    justify-content: center;
+    width: 100%;
+    overflow: auto;
+
+    .title {
+      color: $primary-color;
+      font-family: 'Alfa Slab One', serif;
+      font-size: 17px;
+      text-align: center;
+    }
   }
+
+  .background-img-desktop {
+    width: 60%;
+    margin-left: 2rem;
+
+    img {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .background-img-desktop {
+    display: none;
+  }
+}
+
+/* Masquer la scrollbar */
+.gamesList::-webkit-scrollbar {
+  display: none;
 }
