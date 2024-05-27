@@ -1,6 +1,7 @@
 import './Game.scss';
-// image afficher par defaut si pas d'image
 import { Link } from 'react-router-dom';
+import iconFav from '../../assets/icon/fav2.png';
+// image afficher par defaut si pas d'image
 import defaultImage from '../../assets/icon/pawn-icon.png';
 
 const GamesList = () => {
@@ -20,14 +21,16 @@ const GamesList = () => {
         <h3>Nom du jeu</h3>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit sint
-          tempora, vero eveniet reprehenderit, hic ea voluptates iure sed et
-          commodi, vel dolore illo! Aliquam quas recusandae unde nam nemo!
+          tempora, vero eveniet reprehenderit, hic ea voluptates iure
         </p>
         <p className="tags-games-list">les tags</p>
         <strong className="price-games-list">à partir de 10€</strong>
       </div>
 
-      <div className="available-tag"> ●Disponible</div>
+      <div className="favorite">
+        <div className="available-tag"> ●Disponible</div>
+        <img src={iconFav} alt="ajouter à mes favoris" />
+      </div>
     </div>
   );
 };

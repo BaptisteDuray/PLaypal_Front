@@ -55,10 +55,21 @@
     }
   }
 
-  .available-tag {
-    color: green;
-    margin: 10px;
-    font-family: 'Akshar', sans-serif;
-    font-weight: 100;
+  .favorite {
+    justify-content: space-between;
+    flex-direction: column;
+    display: flex;
+    margin: 0.5rem;
+    .available-tag {
+      color: green;
+      margin: 10px;
+      font-family: 'Akshar', sans-serif;
+      font-weight: 100;
+    }
+    img {
+      width: 3rem;
+      text-align: end;
+      margin: 1rem;
+    }
   }
 }
