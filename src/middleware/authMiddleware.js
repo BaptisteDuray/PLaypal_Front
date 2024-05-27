@@ -9,7 +9,7 @@ const authMiddleware = (store) => (next) => (action) => {
         .post(
           // URL
           'http://localhost:3001/login',
-          // données
+          // données http://baptisteduray-server.eddi.cloud/
           {
             email: store.getState().email,
             password: store.getState().password,

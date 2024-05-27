@@ -1,6 +1,7 @@
 import Field from '../Field/Field';
 import { useSelector, useDispatch } from 'react-redux';
 
+import { Link } from 'react-router-dom';
 import { changeSettingsField, submitLogin } from '../../actions/search';
 
 import './Settings.scss';
@@ -49,6 +50,12 @@ const Settings = () => {
         <button type="submit" className="settings-submit">
           Se Connecter
         </button>
+        <div>
+          Nouveau chez Playpal?
+          <button type="submit" className="settings-submit">
+            <Link to="/Inscription">Créez votre compte Playpal</Link>
+          </button>
+        </div>
       </form>
     </div>
   );

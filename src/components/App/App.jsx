@@ -11,6 +11,7 @@ import HeaderMenu from '../HeaderMenu/HeaderMenu';
 import MenuFooter from '../MenuFooter/MenuFooter';
 import NavigationMobile from '../NavigationMobile/NavigationMobile';
 import Settings from '../Settings/Settings';
+import InscriptionPage from '../../InscsriptionPage/InscriptionPage';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/liste-de-jeux" element={<GamesList />} />
         <Route path="/nom-du-jeu" element={<GamePage />} />
         <Route path="/Connexion" element={<Settings />} />
+        <Route path="/Inscription" element={<InscriptionPage />} />
       </Routes>
       <NavigationMobile />
     </div>
