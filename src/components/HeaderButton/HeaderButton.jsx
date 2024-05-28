@@ -4,6 +4,7 @@ import './HeaderButton.scss';
 const HeaderButton = () => {
   return (
     <div className="HeaderButton">
+<<<<<<< HEAD
       <div className="userButton">
         <Link className="btnGrad" to="/liste-de-jeux">
           Les jeux
@@ -27,6 +28,11 @@ const HeaderButton = () => {
           Connexion
         </Link>
       </div>
+=======
+      <Link className="btnGrad" to="/Contact">
+        Contact
+      </Link>
+>>>>>>> brnache-dev-mb-2
     </div>
   );
 };

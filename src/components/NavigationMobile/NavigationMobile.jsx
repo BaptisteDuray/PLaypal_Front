@@ -1,5 +1,4 @@
 import './NavigationMobile.scss';
-// liens vers les page avec bonne url
 import { Link } from 'react-router-dom';
 
 const NavigationMobile = () => {
@@ -24,11 +23,10 @@ const NavigationMobile = () => {
         <img src="/src/assets/icon/agenda-icon2.png" alt="agenda" />
         <span>Mes Locations</span>
       </a>
-
-      <a href="*" className="BlocIcon">
+      <Link className="BlocIcon" to="/Connexion">
         <img src="/src/assets/icon/avatar2.png" alt="compte" />
         <span>connexion</span>
-      </a>
+      </Link>
     </div>
   );
 };
