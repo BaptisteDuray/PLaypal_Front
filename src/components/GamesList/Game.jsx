@@ -3,8 +3,13 @@ import { Link } from 'react-router-dom';
 import iconFav from '../../assets/icon/fav2.png';
 // image afficher par defaut si pas d'image
 import defaultImage from '../../assets/icon/pawn-icon.png';
+import { addItemToFav } from '../../actions/search';
+import { useSelector, useDispatch } from 'react-redux';
 
 const GamesList = () => {
+  const itemsFavValue = useSelector((state) => state.itemsFav);
+
+  const dispatch = useDispatch();
   return (
     <div className="cardList">
       <div className="game-image">
@@ -29,7 +34,19 @@ const GamesList = () => {
 
       <div className="favorite">
         <div className="available-tag"> ●Disponible</div>
-        <img src={iconFav} alt="ajouter à mes favoris" />
+        <button
+          className="btn-back-fav"
+          type="button"
+          onClick={(event) => {
+            event.preventDefault();
+            console.log('submit');
+            /* on envoie une action, qui déclenchera une requete en passant par
+authMiddleware */
+            dispatch(addItemToFav());
+          }}
+        >
+          <img src={iconFav} alt="ajouter à mes favoris" />
+        </button>
       </div>
     </div>
   );

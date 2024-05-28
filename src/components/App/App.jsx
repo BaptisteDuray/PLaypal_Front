@@ -12,6 +12,7 @@ import MenuFooter from '../MenuFooter/MenuFooter';
 import NavigationMobile from '../NavigationMobile/NavigationMobile';
 import Settings from '../Settings/Settings';
 import InscriptionPage from '../../InscsriptionPage/InscriptionPage';
+import Apropos from '../Apropos/Apropos';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/nom-du-jeu" element={<GamePage />} />
         <Route path="/Connexion" element={<Settings />} />
         <Route path="/Inscription" element={<InscriptionPage />} />
+        <Route path="/apropos" element={<Apropos />} />
       </Routes>
       <NavigationMobile />
       <MenuFooter />

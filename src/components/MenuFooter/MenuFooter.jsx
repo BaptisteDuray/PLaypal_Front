@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './MenuFooter.scss';
 
 const MenuFooter = () => {
@@ -5,6 +6,7 @@ const MenuFooter = () => {
     <div className="MenuFooter">
       <ul className="list-menu-footer">
         <li>A propos</li>
+
         <li>Conditions générales de ventes</li>
         <li>Mention légales</li>
       </ul>

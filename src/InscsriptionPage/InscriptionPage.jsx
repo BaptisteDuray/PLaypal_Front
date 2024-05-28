@@ -1,7 +1,9 @@
 import { useSelector, useDispatch } from 'react-redux';
 
-import { changeSettingsInscription } from '../actions/search';
-import './InscriptionPage.scss';
+import {
+  changeSettingsInscription,
+  submitInscription,
+} from '../actions/search';
 
 import Field from '../components/Field/Field';
 
@@ -110,7 +112,17 @@ const InscriptionPage = () => {
             value={attachmentValue}
           />
 
-          <button type="submit" className="settings-submit">
+          <button
+            type="submit"
+            className="settings-submit"
+            onClick={(event) => {
+              event.preventDefault();
+              // console.log('submit');
+              /* on envoie une action, qui déclenchera une requete en passant par
+  authMiddleware */
+              dispatch(submitInscription());
+            }}
+          >
             Envoyer
           </button>
         </form>

@@ -5,8 +5,16 @@ export const CHANGE_SETTINGS_CONTACT = 'CHANGE_SETTINGS_CONTACT';
 export const CHANGE_SETTINGS_INSCRIPTION = 'CHANGE_SETTINGS_INSCRIPTION';
 export const SUBMIT_LOGIN = 'SUBMIT_LOGIN';
 export const SUBMIT_SEARCH = 'SUBMIT_SEARCH';
+export const SUBMIT_CONTACT = 'SUBMIT_CONTACT';
 
+export const SUBMIT_INSCRIPTION = 'SUBMIT_INSCRIPTION';
 export const HANDLE_SUCCESSFUL_LOGIN = 'HANDLE_SUCCESSFUL_LOGIN';
+
+// ajout d'une action pour ajouter en favoris
+export const ADD_ITEM_TO_FAV = 'ADD_ITEM_TO_FAV';
+
+// ajout d'une action pour ajouter en location
+export const ADD_ITEM_TO_LOC = 'ADD_ITEM_TO_LOC';
 
 export const changeInputMessage = (newValue) => ({
   type: CHANGE_INPUT_MESSAGE,
@@ -35,11 +43,27 @@ export const submitLogin = () => ({
   type: SUBMIT_LOGIN,
 });
 
-export const submitsearch = () => ({
+export const submitSearch = () => ({
   type: SUBMIT_SEARCH,
+});
+
+export const submitInscription = () => ({
+  type: SUBMIT_INSCRIPTION,
+});
+
+export const submitContact = () => ({
+  type: SUBMIT_CONTACT,
 });
 
 export const handleSuccessLogin = () => ({
   type: HANDLE_SUCCESSFUL_LOGIN,
   nickname,
+});
+
+export const addItemToFav = (state, action) => ({
+  type: ADD_ITEM_TO_FAV,
+});
+
+export const addItemToLoc = () => ({
+  type: ADD_ITEM_TO_LOC,
 });

@@ -4,6 +4,8 @@ import {
   CHANGE_SETTINGS_FIELD,
   HANDLE_SUCCESSFUL_LOGIN,
   CHANGE_SETTINGS_INSCRIPTION,
+  ADD_ITEM_TO_FAV,
+  ADD_ITEM_TO_LOC,
 } from '../actions/search';
 
 const initialState = {
@@ -21,6 +23,8 @@ const initialState = {
   company: '',
   number: '',
   attachment: '',
+  itemsFav: [],
+  itemsLoc: [],
 };
 
 const reducer = (state = initialState, action = {}) => {
