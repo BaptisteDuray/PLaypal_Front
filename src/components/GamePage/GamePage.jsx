@@ -1,10 +1,18 @@
 // Page detail d'un jeu
 // quand on clique sur la carte d'un jeu
+
+import { useSelector, useDispatch } from 'react-redux';
+
 import './GamePage.scss';
 import defaultImage from '../../assets/icon/pawn-icon.png';
 import iconFav from '../../assets/icon/fav2.png';
+import { addItemToFav, addItemToLoc } from '../../actions/search';
 
 const Game = () => {
+  const itemsFavValue = useSelector((state) => state.itemsFav);
+  const itemsLocValue = useSelector((state) => state.itemsLoc);
+
+  const dispatch = useDispatch();
   return (
     <article className="cardgame-page">
       <div className="article-desktop-left">
@@ -38,7 +46,17 @@ const Game = () => {
         </div>
 
         <div className="btn">
-          <button className="btn-reservation" type="button">
+          <button
+            className="btn-reservation"
+            type="button"
+            onClick={(event) => {
+              event.preventDefault();
+              console.log('submit');
+              /* on envoie une action, qui déclenchera une requete en passant par
+authMiddleware */
+              dispatch(addItemToLoc());
+            }}
+          >
             Louer le jeu
           </button>
           <button className="btn-back" type="button">
@@ -47,7 +65,19 @@ const Game = () => {
         </div>
 
         <div className="fav-icon">
-          <img src={iconFav} alt="ajouter à mes favoris" />
+          <button
+            className="btn-back-fav"
+            type="button"
+            onClick={(event) => {
+              event.preventDefault();
+              console.log('submit');
+              /* on envoie une action, qui déclenchera une requete en passant par
+authMiddleware */
+              dispatch(addItemToFav());
+            }}
+          >
+            <img src={iconFav} alt="ajouter à mes favoris" />
+          </button>
         </div>
       </div>
     </article>

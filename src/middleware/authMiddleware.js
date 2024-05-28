@@ -8,8 +8,8 @@ const authMiddleware = (store) => (next) => (action) => {
       axios
         .post(
           // URL
-          'http://localhost:3001/login',
-          // données http://baptisteduray-server.eddi.cloud/
+          'http://baptisteduray-server.eddi.cloud/login',
+          // données http://baptisteduray-server.eddi.cloud/login
           {
             email: store.getState().email,
             password: store.getState().password,

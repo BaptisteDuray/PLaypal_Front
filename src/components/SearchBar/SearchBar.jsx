@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { Input, Form, FormField, Segment } from 'semantic-ui-react';
 
-import { changeInputMessage, submitsearch } from '../../actions/search';
+import { changeInputMessage, submitSearch } from '../../actions/search';
 
 const SearchBar = () => {
   const value = useSelector((state) => state.inputMessage);
@@ -20,7 +20,7 @@ const SearchBar = () => {
               event.preventDefault();
               console.log('submit');
 
-              dispatch(submitsearch());
+              dispatch(submitSearch());
             }}
           >
             <FormField>

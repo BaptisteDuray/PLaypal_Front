@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { changeSettingsContact } from '../../actions/search';
+import { changeSettingsContact, submitContact } from '../../actions/search';
 
 import '../Settings/Settings';
 import Field from '../Field/Field';
@@ -70,7 +70,17 @@ const ContactPage = () => {
             value={messageValue}
           />
 
-          <button type="submit" className="settings-submit">
+          <button
+            type="submit"
+            className="settings-submit"
+            onClick={(event) => {
+              event.preventDefault();
+              // console.log('submit');
+              /* on envoie une action, qui déclenchera une requete en passant par
+authMiddleware */
+              dispatch(submitContact());
+            }}
+          >
             Envoyer
           </button>
         </form>
