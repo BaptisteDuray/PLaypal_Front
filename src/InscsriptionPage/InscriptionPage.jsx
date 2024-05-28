@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 
 import { changeSettingsInscription } from '../actions/search';
+import './InscriptionPage.scss';
 
 import Field from '../components/Field/Field';
 
