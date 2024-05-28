@@ -1,0 +1,14 @@
+@import '/src/styles/variables';
+.Contact {
+  .settings {
+    font-family: 'Alfa Slab One', serif;
+    padding: 2rem;
+    height: 1000px;
+  }
+  .settings-submit {
+    border: none;
+    padding: 20px;
+    background-color: $secondary-color;
+    border-radius: 10px;
+  }
+}
