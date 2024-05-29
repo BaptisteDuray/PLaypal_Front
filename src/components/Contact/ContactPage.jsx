@@ -14,7 +14,7 @@ const ContactPage = () => {
   const dispatch = useDispatch();
 
   return (
-    <div classname="Contact">
+    <div className="Contact">
       <div className="settings">
         <form
           className="settings-form"
