@@ -1,0 +1,52 @@
+export default [
+  {
+    id: 1,
+    category: 'jeux de société',
+    name: '	mage-knight',
+    price: '10€',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, ',
+    status: 'Disponible',
+  },
+  {
+    id: 2,
+    category: 'jeu historique',
+    name: 'ghost-stories',
+    price: '10€',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, ',
+    status: 'Disponible',
+  },
+  {
+    id: 3,
+    category: 'jeux de société',
+    name: 'pictionary',
+    price: '10€',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, ',
+    status: 'Hock stock',
+  },
+  {
+    id: 4,
+    category: 'jeu narratif',
+    name: '	takenoko',
+    price: '5€',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, ',
+    status: 'Disponible',
+  },
+  {
+    id: 5,
+    category: 'jeux de société',
+    name: 'la-bonne-paye',
+    price: '14€',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, ',
+    status: 'Hors stock',
+    image:
+      'https://www.cdiscount.com/pdt2/1/7/6/1/700x700/par5023117696176/rw/la-bonne-paye-nouvelle-edition-jeu-de-societe-fami.jpg',
+  },
+  {
+    id: 6,
+    category: 'jeu narratif',
+    name: '	clank',
+    price: '10€',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, ',
+    status: 'Disponible',
+  },
+];

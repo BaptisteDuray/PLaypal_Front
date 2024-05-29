@@ -7,8 +7,8 @@ const MenuFooter = () => {
       <ul className="list-menu-footer">
         <li>A propos</li>
 
-        <li>Conditions générales de ventes</li>
-        <li>Mention légales</li>
+        <li>Conditions générales de vente</li>
+        <li>Mentions légales</li>
       </ul>
       <p>copyright playpal 2024</p>
     </div>

@@ -6,13 +6,15 @@ import {
   CHANGE_SETTINGS_INSCRIPTION,
   ADD_ITEM_TO_FAV,
   ADD_ITEM_TO_LOC,
+  SAVE_GAMES,
 } from '../actions/search';
-
 const initialState = {
   inputMessage: '',
   email: '',
   password: '',
-  nickname: '',
+  logged: false,
+  // token JWT (quand l'utilisateur est authentifié)
+  token: '',
   firstname: '',
   name: '',
   message: '',
@@ -23,18 +25,25 @@ const initialState = {
   company: '',
   number: '',
   attachment: '',
+  list: [],
   itemsFav: [],
   itemsLoc: [],
+  isGamesLoaded: false,
 };
-
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
+    case SAVE_GAMES:
+      return {
+        ...state,
+        list: action.games,
+        // on indique que les recettes sont chargées
+        isGamesLoaded: true,
+      };
     case CHANGE_INPUT_MESSAGE:
       return {
         ...state,
         inputMessage: action.value,
       };
-
     case CHANGE_SETTINGS_FIELD:
       if (action.identifier === 'email') {
         return {
@@ -46,7 +55,6 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         password: action.value,
       };
-
     case CHANGE_SETTINGS_CONTACT:
       if (action.identifier === 'firstname') {
         return {
@@ -70,7 +78,6 @@ const reducer = (state = initialState, action = {}) => {
         };
       }
       return state;
-
     case CHANGE_SETTINGS_INSCRIPTION:
       if (action.identifier === 'firstnameInscription') {
         return {
@@ -103,15 +110,24 @@ const reducer = (state = initialState, action = {}) => {
           company: action.value,
         };
       }
-
       return {
         ...state,
         messageInscription: action.value,
       };
-
+    case ADD_ITEM_TO_FAV:
+      return {
+        ...state,
+        itemsFav: action.game,
+      };
+    case HANDLE_SUCCESSFUL_LOGIN:
+      return {
+        ...state,
+        first: action.firstname,
+        token: action.token,
+        logged: true,
+      };
     default:
       return state;
   }
 };
-
 export default reducer;
