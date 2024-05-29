@@ -51,9 +51,9 @@ export const submitInscription = () => ({
 export const submitContact = () => ({
   type: SUBMIT_CONTACT,
 });
-export const handleSuccessLogin = (firstname, token) => ({
+export const handleSuccessfulLogin = (username, token) => ({
   type: HANDLE_SUCCESSFUL_LOGIN,
-  firstname,
+  username,
   token,
 });
 export const addItemToFav = (state, action) => ({

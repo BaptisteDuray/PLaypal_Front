@@ -29,6 +29,7 @@ const initialState = {
   itemsFav: [],
   itemsLoc: [],
   isGamesLoaded: false,
+  username: '',
 };
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
@@ -122,7 +123,7 @@ const reducer = (state = initialState, action = {}) => {
     case HANDLE_SUCCESSFUL_LOGIN:
       return {
         ...state,
-        first: action.firstname,
+        username: action.username,
         token: action.token,
         logged: true,
       };
