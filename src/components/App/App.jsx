@@ -14,6 +14,8 @@ import Settings from '../Settings/Settings';
 import InscriptionPage from '../../InscsriptionPage/InscriptionPage';
 import Apropos from '../Apropos/Apropos';
 
+// TODO 1.importer le fichier de data temporaire pour tester la dynamisation (ex. gamesData)
+
 function App() {
   return (
     <div className="App">

@@ -1,15 +1,24 @@
 import './Game.scss';
 import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import iconFav from '../../assets/icon/fav2.png';
 // image afficher par defaut si pas d'image
 import defaultImage from '../../assets/icon/pawn-icon.png';
 import { addItemToFav } from '../../actions/search';
-import { useSelector, useDispatch } from 'react-redux';
+// TODO importer proptypes
 
-const GamesList = () => {
+const Game = () => {
   const itemsFavValue = useSelector((state) => state.itemsFav);
 
   const dispatch = useDispatch();
+
+  // test pour la dynamisation de game
+  const name = 'nom du jeu';
+  const price = 'à partir de 10 €';
+  const category = 'Narratif';
+  const status = '●Disponible';
+  // TODO 3. dynamiser les info grace au donnéed de gamesData
+
   return (
     <div className="cardList">
       <div className="game-image">
@@ -23,17 +32,17 @@ const GamesList = () => {
       </div>
 
       <div className="informations">
-        <h3>Nom du jeu</h3>
+        <h3>{name}</h3>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit sint
           tempora, vero eveniet reprehenderit, hic ea voluptates iure
         </p>
-        <p className="tags-games-list">les tags</p>
-        <strong className="price-games-list">à partir de 10€</strong>
+        <p className="tags-games-list">{category}</p>
+        <strong className="price-games-list">{price}</strong>
       </div>
 
       <div className="favorite">
-        <div className="available-tag"> ●Disponible</div>
+        <div className="available-tag">{status}</div>
         <button
           className="btn-back-fav"
           type="button"
@@ -52,4 +61,5 @@ authMiddleware */
   );
 };
 
-export default GamesList;
+// TODO verification des proptypes
+export default Game;

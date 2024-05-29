@@ -4,13 +4,12 @@ import './GamesList.scss';
 import Game from './Game';
 import backgroundImage from '../../assets/image/background-img.jpg';
 
+// TODO 2.mettre les data en props
 const GamesList = () => {
   return (
     <div className="game-list-desktop">
       <div className="gamesList">
         <h1 className="title">Tous nos jeux</h1>
-        <Game />
-        <Game />
         <Game />
         <Game />
       </div>
