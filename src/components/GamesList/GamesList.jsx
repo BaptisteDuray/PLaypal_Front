@@ -4,9 +4,14 @@ import PropTypes from 'prop-types';
 import './GamesList.scss';
 import Game from './Game';
 import backgroundImage from '../../assets/image/background-img.jpg';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 
 // TODO 2.mettre les data en props
 const GamesList = ({ gamesData }) => {
+  const dispatch = useDispatch();
+  useEffect(() => {}, []);
+
   return (
     <div className="game-list-desktop">
       <div className="gamesList">

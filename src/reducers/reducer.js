@@ -38,7 +38,7 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         list: action.games,
         // on indique que les recettes sont chargées
-        isGamesLoaded: true,
+        //isGamesLoaded: true,
       };
     case CHANGE_INPUT_MESSAGE:
       return {

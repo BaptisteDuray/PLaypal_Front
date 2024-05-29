@@ -10,7 +10,7 @@ import inscriptionMiddleware from '../middleware/inscriptionMiddleware';
 
 //enhancer for the middlewares, cll applyMiddleware with the different middleware in argument
 const enhancerWithMiddleware = applyMiddleware(
-  // gamesListMiddleware,
+  gamesListMiddleware,
   authMiddleware,
   searchMiddleware
   //contactMiddleware,
