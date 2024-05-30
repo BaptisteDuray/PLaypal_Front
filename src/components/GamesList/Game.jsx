@@ -57,12 +57,12 @@ authMiddleware */
 
 // TODO verification des proptypes
 
-// Game.propTypes = {
-//   name: PropTypes.string.isRequired,
-//   description: PropTypes.string.isRequired,
-//   category: PropTypes.string.isRequired,
-//   price: PropTypes.string.isRequired,
-//   status: PropTypes.string.isRequired,
-//   image: PropTypes.string.isRequired,
-// };
+Game.propTypes = {
+  name: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
+  price: PropTypes.string.isRequired,
+  status: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+};
 export default Game;

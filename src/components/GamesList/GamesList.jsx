@@ -20,7 +20,7 @@ const GamesList = () => {
         <h1 className="title">Tous nos jeux</h1>
         {gamesList.map((game) => (
           <Game
-            //key={game.id}
+            key={game.id}
             name={game.Name}
             description={game.Description}
             category={game.category}
@@ -36,22 +36,22 @@ const GamesList = () => {
     </div>
   );
 };
-// GamesList.propTypes = {
-//   gamesList: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       id: PropTypes.number.isRequired,
-//       Name: PropTypes.string.isRequired,
-//       Description: PropTypes.string.isRequired,
-//       category: PropTypes.arrayOf(
-//         PropTypes.shape({
-//           name: PropTypes.string.isRequired,
-//         })
-//       ).isRequired, // Ajoutez la virgule et marquez la propriété comme requise
-//       Price: PropTypes.string.isRequired,
-//       Status: PropTypes.string.isRequired, // Ajoutez la virgule ici
-//       image: PropTypes.string.isRequired,
-//     })
-//   ),
-// };
+GamesList.propTypes = {
+  gamesList: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      Name: PropTypes.string.isRequired,
+      Description: PropTypes.string.isRequired,
+      category: PropTypes.arrayOf(
+        PropTypes.shape({
+          name: PropTypes.string.isRequired,
+        })
+      ).isRequired, // Ajoutez la virgule et marquez la propriété comme requise
+      Price: PropTypes.string.isRequired,
+      Status: PropTypes.string.isRequired, // Ajoutez la virgule ici
+      image: PropTypes.string.isRequired,
+    })
+  ),
+};
 
 export default GamesList;
