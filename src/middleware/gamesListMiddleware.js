@@ -8,7 +8,7 @@ const gamesListMiddleware = (store) => (next) => (action) => {
       axios
         .get('https://backend.baptisteduray-server.eddi.cloud/api/jeu')
         .then((response) => {
-          //console.log(response);
+          console.log(response);
           store.dispatch(saveGames(response.data));
         })
         .catch((error) => {
@@ -20,6 +20,7 @@ const gamesListMiddleware = (store) => (next) => (action) => {
     default:
       break;
   }
+  next(action);
 };
 
 export default gamesListMiddleware;

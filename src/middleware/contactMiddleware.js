@@ -1,37 +1,30 @@
-import {} from '../actions/search';
+import axios from 'axios';
+import { SUBMIT_CONTACT } from '../actions/search';
 
 const contactMiddleware = (store) => (next) => (action) => {
-  /* case SUBMIT_CONTACT:
-    console.log('oh, une action SUBMIT_SEARCH');
- 
-  /* le middleware réagit à certains types d'actions
-  if (action.type === SUBMIT_CONTACT) {
-    console.log('oh, une action SUBMIT_LOGIN');
-    // on envoie une requête de type POST au serveur
-    axios
-      .get(
-        // URL
-        //'http://localhost:3001/login',
-        // données
-        {
-         // email: store.getState().email,
-          // password: store.getState().password,
-          // Note : si on veut accéder à une information de payload de l'action,
-          // => truc: action.nomInfo
-        }
-      )
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+  switch (action.type) {
+    case SUBMIT_CONTACT:
+      axios
+        .post('https://backend.baptisteduray-server.eddi.cloud/api/contact/', {
+          Firstname: store.getState().firstname,
 
+          Name: store.getState().name,
+          Company: store.getState().company,
+          mail: store.getState().emailContact,
+          contactNumber: store.getState().contactNumber,
+          message: store.getState().message,
+        })
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
       break;
-      default:
+
+    default:
+      next(action);
   }
-  */
-  next(action);
 };
 
 export default contactMiddleware;

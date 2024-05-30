@@ -1,86 +1,81 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { changeSettingsContact, submitContact } from '../../actions/search';
-
-import '../Settings/Settings';
 import Field from '../Field/Field';
 import './ContactPage.scss';
 
 const ContactPage = () => {
   const firstnameValue = useSelector((state) => state.firstname);
   const nameValue = useSelector((state) => state.name);
-  const emailValue = useSelector((state) => state.email);
+  const emailValue = useSelector((state) => state.emailContact);
   const messageValue = useSelector((state) => state.message);
+  const contactNumberValue = useSelector((state) => state.contactNumber);
+  const companyValue = useSelector((state) => state.company);
 
   const dispatch = useDispatch();
 
+  const handleFieldChange = (identifier, newValue) => {
+    dispatch(changeSettingsContact(newValue, identifier));
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    dispatch(submitContact());
+  };
+
   return (
-    <div classname="Contact">
+    <div className="Contact">
       <div className="settings">
-        <form
-          className="settings-form"
-          onSubmit={(event) => {
-            event.preventDefault();
-            // console.log('submit');
-            /* on envoie une action, qui déclenchera une requete en passant par
-        authMiddleware */
-            dispatch(submitContact());
-          }}
-        >
+        <form className="settings-form" onSubmit={handleSubmit}>
           <Field
             identifier="firstname"
             placeholder="John"
             label="Prénom"
-            changeField={(identifier, newValue) => {
-              const action = changeSettingsContact(newValue, identifier);
-              dispatch(action);
-            }}
+            changeField={handleFieldChange}
             value={firstnameValue}
           />
           <Field
             identifier="name"
             placeholder="DOE"
             label="NOM"
-            changeField={(identifier, newValue) => {
-              const action = changeSettingsContact(newValue, identifier);
-              dispatch(action);
-            }}
+            changeField={handleFieldChange}
             type="text"
             value={nameValue}
           />
           <Field
-            identifier="email"
+            identifier="company"
+            placeholder="Playpal"
+            label="Société"
+            changeField={handleFieldChange}
+            type="text"
+            value={companyValue}
+          />
+
+          <Field
+            identifier="emailContact"
             placeholder="cluedo@playpal.fr"
             label="Mail"
-            changeField={(identifier, newValue) => {
-              const action = changeSettingsContact(newValue, identifier);
-              dispatch(action);
-            }}
+            changeField={handleFieldChange}
             type="text"
             value={emailValue}
+          />
+          <Field
+            identifier="contactNumber"
+            placeholder="..."
+            label="Numéro de téléphone"
+            changeField={handleFieldChange}
+            type="number"
+            value={contactNumberValue}
           />
           <Field
             identifier="message"
             placeholder="..."
             label="Message"
-            changeField={(identifier, newValue) => {
-              const action = changeSettingsContact(newValue, identifier);
-              dispatch(action);
-            }}
+            changeField={handleFieldChange}
             type="text"
             value={messageValue}
           />
 
-          <button
-            type="submit"
-            className="settings-submit"
-            onClick={(event) => {
-              event.preventDefault();
-              // console.log('submit');
-              /* on envoie une action, qui déclenchera une requete en passant par
-authMiddleware */
-              dispatch(submitContact());
-            }}
-          >
+          <button type="submit" className="settings-submit">
             Envoyer
           </button>
         </form>

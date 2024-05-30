@@ -1,10 +1,6 @@
 import axios from 'axios';
 
-import {
-  SUBMIT_LOGIN,
-  HANDLE_SUCCESSFUL_LOGIN,
-  handleSuccessLogin,
-} from '../actions/search';
+import { SUBMIT_LOGIN, HANDLE_SUCCESSFUL_LOGIN } from '../actions/search';
 //HANDLE_SUCCESSFUL_LOGIN
 // A middleware for the authentification (here to manage the communication with the server for the authentification)
 
@@ -25,29 +21,11 @@ const authMiddleware = (store) => (next) => (action) => {
         )
         .then((response) => {
           console.log(response);
-          //il faut que je change response.data.pseudo selon comment on l'a appelé
-          //const actionToDispatch = handleSuccessFulLogin(
-          // response.user.firstname
-          //);
-          //console.log('Response from server:', response.data);
-          //const actionToDispatch = {
-          //type: HANDLE_SUCCESSFUL_LOGIN,
-          //payload: response.data,
-          // };
+          //console.log(response.data.token);
 
-          //store.dispatch(
-          //handleSuccessfulLogin(
-          //  response.playpal.game.firstname,
-          // response.playpal.token
-          // )
-          //);
-
-          // à ce stade le token est déjà rangé dans le state (le store traite
-          // les actions de façon synchrone)
-
-          // on récupère les recettes préférées de l'utilisateur
-          //store.dispatch(handleSuccessLogin());
-          //store.dispatch(actionToDispatch);
+          store.dispatch(
+            handleSuccessfulLogin(response.data.pseudo, response.data.token)
+          );
         })
         .catch((error) => {
           console.log(error);

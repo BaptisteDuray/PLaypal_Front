@@ -4,11 +4,18 @@ import { composeWithDevTools } from '@redux-devtools/extension';
 import reducer from '../reducers/reducer';
 import authMiddleware from '../middleware/authMiddleware';
 import searchMiddleware from '../middleware/searchMiddleware';
+import gamesListMiddleware from '../middleware/gamesListMiddleware';
+import contactMiddleware from '../middleware/contactMiddleware';
+import inscriptionMiddleware from '../middleware/inscriptionMiddleware';
 
 //enhancer for the middlewares, cll applyMiddleware with the different middleware in argument
 const enhancerWithMiddleware = applyMiddleware(
+  contactMiddleware,
+  gamesListMiddleware,
   authMiddleware,
-  searchMiddleware
+  searchMiddleware,
+
+  inscriptionMiddleware
 );
 
 //We associate the different with dev tools: composeWithDevTools is here to add the devtools to the enhancer that is used in argument, so we can get a new enhancer

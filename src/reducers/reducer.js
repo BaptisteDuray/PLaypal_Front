@@ -8,35 +8,37 @@ import {
   ADD_ITEM_TO_LOC,
   SAVE_GAMES,
 } from '../actions/search';
+
 const initialState = {
   inputMessage: '',
   email: '',
   password: '',
   logged: false,
-  // token JWT (quand l'utilisateur est authentifié)
   token: '',
   firstname: '',
   name: '',
   message: '',
+  company: '',
   firstnameInscription: '',
   nameInscription: '',
   emailInscription: '',
+  emailContact: '',
   messageInscription: '',
-  company: '',
-  number: '',
+  contactNumber: '',
   attachment: '',
   list: [],
   itemsFav: [],
   itemsLoc: [],
   isGamesLoaded: false,
+  username: '',
 };
+
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case SAVE_GAMES:
       return {
         ...state,
         list: action.games,
-        // on indique que les recettes sont chargées
         isGamesLoaded: true,
       };
     case CHANGE_INPUT_MESSAGE:
@@ -66,10 +68,20 @@ const reducer = (state = initialState, action = {}) => {
           ...state,
           name: action.value,
         };
-      } else if (action.identifier === 'email') {
+      } else if (action.identifier === 'company') {
         return {
           ...state,
-          email: action.value,
+          company: action.value,
+        };
+      } else if (action.identifier === 'emailContact') {
+        return {
+          ...state,
+          emailContact: action.value,
+        };
+      } else if (action.identifier === 'contactNumber') {
+        return {
+          ...state,
+          contactNumber: action.value,
         };
       } else if (action.identifier === 'message') {
         return {
@@ -94,20 +106,10 @@ const reducer = (state = initialState, action = {}) => {
           ...state,
           emailInscription: action.value,
         };
-      } else if (action.identifier === 'number') {
-        return {
-          ...state,
-          number: action.value,
-        };
       } else if (action.identifier === 'attachment') {
         return {
           ...state,
           attachment: action.value,
-        };
-      } else if (action.identifier === 'company') {
-        return {
-          ...state,
-          company: action.value,
         };
       }
       return {
@@ -122,7 +124,7 @@ const reducer = (state = initialState, action = {}) => {
     case HANDLE_SUCCESSFUL_LOGIN:
       return {
         ...state,
-        first: action.firstname,
+        username: action.username,
         token: action.token,
         logged: true,
       };
@@ -130,4 +132,5 @@ const reducer = (state = initialState, action = {}) => {
       return state;
   }
 };
+
 export default reducer;
