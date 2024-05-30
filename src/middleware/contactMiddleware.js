@@ -5,10 +5,12 @@ const contactMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case SUBMIT_CONTACT:
       axios
-        .post('https://backend.baptisteduray-server.eddi.cloud/api/contact', {
-          firstname: store.getState().firstname,
-          name: store.getState().name,
-          email: store.getState().email,
+        .post('https://backend.baptisteduray-server.eddi.cloud/api/contact/', {
+          Firstname: store.getState().firstname,
+
+          Name: store.getState().name,
+          Company: store.getState().company,
+          mail: store.getState().emailContact,
           contactNumber: store.getState().contactNumber,
           message: store.getState().message,
         })

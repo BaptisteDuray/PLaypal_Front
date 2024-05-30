@@ -18,13 +18,13 @@ const initialState = {
   firstname: '',
   name: '',
   message: '',
+  company: '',
   firstnameInscription: '',
   nameInscription: '',
   emailInscription: '',
+  emailContact: '',
   messageInscription: '',
-  company: '',
   contactNumber: '',
-  number: '',
   attachment: '',
   list: [],
   itemsFav: [],
@@ -68,10 +68,15 @@ const reducer = (state = initialState, action = {}) => {
           ...state,
           name: action.value,
         };
-      } else if (action.identifier === 'email') {
+      } else if (action.identifier === 'company') {
         return {
           ...state,
-          email: action.value,
+          company: action.value,
+        };
+      } else if (action.identifier === 'emailContact') {
+        return {
+          ...state,
+          emailContact: action.value,
         };
       } else if (action.identifier === 'contactNumber') {
         return {
@@ -101,20 +106,10 @@ const reducer = (state = initialState, action = {}) => {
           ...state,
           emailInscription: action.value,
         };
-      } else if (action.identifier === 'number') {
-        return {
-          ...state,
-          number: action.value,
-        };
       } else if (action.identifier === 'attachment') {
         return {
           ...state,
           attachment: action.value,
-        };
-      } else if (action.identifier === 'company') {
-        return {
-          ...state,
-          company: action.value,
         };
       }
       return {

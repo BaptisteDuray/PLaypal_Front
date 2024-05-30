@@ -6,21 +6,22 @@ import Game from './Game';
 import backgroundImage from '../../assets/image/background-img.jpg';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { fetchGames } from '../../actions/search';
 
 // TODO 2.mettre les data en props
 const GamesList = ({ gamesData }) => {
   const dispatch = useDispatch();
-  useEffect(() => {
-    const action = fetchgames();
-    dispatch(action);
-  }, []);
+  // useEffect(() => {
+  //   const action = fetchGames();
+  //   dispatch(action);
+  // }, []);
 
   return (
     <div className="game-list-desktop">
       <div className="gamesList">
         <h1 className="title">Tous nos jeux</h1>
 
-        {gamesData.map((game) => (
+        {/* {gamesData.map((game) => (
           <Game
             key={game.id}
             name={game.name}
@@ -30,7 +31,15 @@ const GamesList = ({ gamesData }) => {
             status={game.status}
             image={game.image}
           />
-        ))}
+       ))} */}
+        <button
+          onClick={() => {
+            const action = fetchGames();
+            dispatch(action);
+          }}
+        >
+          item
+        </button>
       </div>
       <div className="background-img-desktop">
         <img src={backgroundImage} alt="couple qui joue à un jeu de société" />

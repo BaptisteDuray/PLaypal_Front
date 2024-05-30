@@ -16,8 +16,7 @@ const InscriptionPage = () => {
   const messageInscriptionValue = useSelector(
     (state) => state.messageInscription
   );
-  const companyValue = useSelector((state) => state.company);
-  const numberValue = useSelector((state) => state.number);
+
   const attachmentValue = useSelector((state) => state.attachment);
 
   const dispatch = useDispatch();
@@ -56,17 +55,7 @@ const InscriptionPage = () => {
             type="text"
             value={nameInscriptionValue}
           />
-          <Field
-            identifier="company"
-            placeholder="Playpal"
-            label="Société"
-            changeField={(identifier, newValue) => {
-              const action = changeSettingsInscription(newValue, identifier);
-              dispatch(action);
-            }}
-            type="text"
-            value={companyValue}
-          />
+
           <Field
             identifier="emailInscription"
             placeholder="cluedo@playpal.fr"
@@ -78,28 +67,7 @@ const InscriptionPage = () => {
             type="text"
             value={emailInscriptionValue}
           />
-          <Field
-            identifier="number"
-            placeholder="..."
-            label="Numéro de téléphone"
-            changeField={(identifier, newValue) => {
-              const action = changeSettingsInscription(newValue, identifier);
-              dispatch(action);
-            }}
-            type="number"
-            value={numberValue}
-          />
-          <Field
-            identifier="messageInscription"
-            placeholder="..."
-            label="Message"
-            changeField={(identifier, newValue) => {
-              const action = changeSettingsInscription(newValue, identifier);
-              dispatch(action);
-            }}
-            type="text"
-            value={messageInscriptionValue}
-          />
+
           <Field
             identifier="attachment"
             placeholder="..."

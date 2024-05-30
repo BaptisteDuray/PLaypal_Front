@@ -6,9 +6,10 @@ import './ContactPage.scss';
 const ContactPage = () => {
   const firstnameValue = useSelector((state) => state.firstname);
   const nameValue = useSelector((state) => state.name);
-  const emailValue = useSelector((state) => state.email);
+  const emailValue = useSelector((state) => state.emailContact);
   const messageValue = useSelector((state) => state.message);
   const contactNumberValue = useSelector((state) => state.contactNumber);
+  const companyValue = useSelector((state) => state.company);
 
   const dispatch = useDispatch();
 
@@ -41,7 +42,16 @@ const ContactPage = () => {
             value={nameValue}
           />
           <Field
-            identifier="email"
+            identifier="company"
+            placeholder="Playpal"
+            label="Société"
+            changeField={handleFieldChange}
+            type="text"
+            value={companyValue}
+          />
+
+          <Field
+            identifier="emailContact"
             placeholder="cluedo@playpal.fr"
             label="Mail"
             changeField={handleFieldChange}
