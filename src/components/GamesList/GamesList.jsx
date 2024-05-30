@@ -1,45 +1,34 @@
-// page de liste des jeux
-// peux s'adapter en fonction de la recherche
 import PropTypes from 'prop-types';
 import './GamesList.scss';
 import Game from './Game';
 import backgroundImage from '../../assets/image/background-img.jpg';
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { fetchGames } from '../../actions/search';
 
-// TODO 2.mettre les data en props
-const GamesList = ({ gamesData }) => {
+const GamesList = () => {
   const dispatch = useDispatch();
-  // useEffect(() => {
-  //   const action = fetchGames();
-  //   dispatch(action);
-  // }, []);
+  const gamesList = useSelector((state) => state.list);
+
+  useEffect(() => {
+    dispatch(fetchGames());
+  }, [dispatch]);
 
   return (
     <div className="game-list-desktop">
       <div className="gamesList">
         <h1 className="title">Tous nos jeux</h1>
-
-        {/* {gamesData.map((game) => (
+        {gamesList.map((game) => (
           <Game
-            key={game.id}
-            name={game.name}
-            description={game.description}
+            //key={game.id}
+            name={game.Name}
+            description={game.Description}
             category={game.category}
-            price={game.price}
-            status={game.status}
+            price={game.Price}
+            status={game.Status}
             image={game.image}
           />
-       ))} */}
-        <button
-          onClick={() => {
-            const action = fetchGames();
-            dispatch(action);
-          }}
-        >
-          item
-        </button>
+        ))}
       </div>
       <div className="background-img-desktop">
         <img src={backgroundImage} alt="couple qui joue à un jeu de société" />
@@ -47,18 +36,22 @@ const GamesList = ({ gamesData }) => {
     </div>
   );
 };
-
-GamesList.propTypes = {
-  gamesData: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      name: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired,
-      category: PropTypes.string.isRequired,
-      price: PropTypes.string.isRequired,
-      status: PropTypes.string.isRequired,
-    })
-  ).isRequired,
-};
+// GamesList.propTypes = {
+//   gamesList: PropTypes.arrayOf(
+//     PropTypes.shape({
+//       id: PropTypes.number.isRequired,
+//       Name: PropTypes.string.isRequired,
+//       Description: PropTypes.string.isRequired,
+//       category: PropTypes.arrayOf(
+//         PropTypes.shape({
+//           name: PropTypes.string.isRequired,
+//         })
+//       ).isRequired, // Ajoutez la virgule et marquez la propriété comme requise
+//       Price: PropTypes.string.isRequired,
+//       Status: PropTypes.string.isRequired, // Ajoutez la virgule ici
+//       image: PropTypes.string.isRequired,
+//     })
+//   ),
+// };
 
 export default GamesList;

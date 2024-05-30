@@ -31,7 +31,7 @@ const Game = ({ name, description, category, price, status, image }) => {
       <div className="informations">
         <h3>{name}</h3>
         <p>{description}</p>
-        <p className="tags-games-list">{category}</p>
+        <p className="tags-games-list">{category.name}</p>
         <strong className="price-games-list">{price}</strong>
       </div>
 
@@ -57,12 +57,12 @@ authMiddleware */
 
 // TODO verification des proptypes
 
-Game.propTypes = {
-  name: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  category: PropTypes.string.isRequired,
-  price: PropTypes.string.isRequired,
-  status: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
-};
+// Game.propTypes = {
+//   name: PropTypes.string.isRequired,
+//   description: PropTypes.string.isRequired,
+//   category: PropTypes.string.isRequired,
+//   price: PropTypes.string.isRequired,
+//   status: PropTypes.string.isRequired,
+//   image: PropTypes.string.isRequired,
+// };
 export default Game;
