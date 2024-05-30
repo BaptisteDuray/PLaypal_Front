@@ -20,6 +20,7 @@ const gamesListMiddleware = (store) => (next) => (action) => {
     default:
       break;
   }
+  next(action);
 };
 
 export default gamesListMiddleware;

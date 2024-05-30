@@ -2,9 +2,10 @@ import { SUBMIT_INSCRIPTION } from '../actions/search';
 
 const inscriptionMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
-    case SUBMIT_CONTACT:
+    case SUBMIT_INSCRIPTION:
       axios
         .post('https://backend.baptisteduray-server.eddi.cloud/inscription')
+
         .then((response) => {
           console.log(response);
         })
@@ -17,6 +18,7 @@ const inscriptionMiddleware = (store) => (next) => (action) => {
     default:
       break;
   }
+  next(action);
 };
 
 export default inscriptionMiddleware;

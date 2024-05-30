@@ -8,12 +8,12 @@ import {
   ADD_ITEM_TO_LOC,
   SAVE_GAMES,
 } from '../actions/search';
+
 const initialState = {
   inputMessage: '',
   email: '',
   password: '',
   logged: false,
-  // token JWT (quand l'utilisateur est authentifié)
   token: '',
   firstname: '',
   name: '',
@@ -23,6 +23,7 @@ const initialState = {
   emailInscription: '',
   messageInscription: '',
   company: '',
+  contactNumber: '',
   number: '',
   attachment: '',
   list: [],
@@ -31,14 +32,14 @@ const initialState = {
   isGamesLoaded: false,
   username: '',
 };
+
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case SAVE_GAMES:
       return {
         ...state,
         list: action.games,
-        // on indique que les recettes sont chargées
-        //isGamesLoaded: true,
+        isGamesLoaded: true,
       };
     case CHANGE_INPUT_MESSAGE:
       return {
@@ -71,6 +72,11 @@ const reducer = (state = initialState, action = {}) => {
         return {
           ...state,
           email: action.value,
+        };
+      } else if (action.identifier === 'contactNumber') {
+        return {
+          ...state,
+          contactNumber: action.value,
         };
       } else if (action.identifier === 'message') {
         return {
@@ -131,4 +137,5 @@ const reducer = (state = initialState, action = {}) => {
       return state;
   }
 };
+
 export default reducer;

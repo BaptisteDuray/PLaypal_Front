@@ -10,7 +10,10 @@ import { useDispatch } from 'react-redux';
 // TODO 2.mettre les data en props
 const GamesList = ({ gamesData }) => {
   const dispatch = useDispatch();
-  useEffect(() => {}, []);
+  useEffect(() => {
+    const action = fetchgames();
+    dispatch(action);
+  }, []);
 
   return (
     <div className="game-list-desktop">
