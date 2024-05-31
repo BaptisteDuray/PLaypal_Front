@@ -14,9 +14,6 @@ import Settings from '../Settings/Settings';
 import InscriptionPage from '../../InscsriptionPage/InscriptionPage';
 import Apropos from '../Apropos/Apropos';
 
-// TODO 1.importer le fichier de data temporaire pour tester la dynamisation (ex. gamesData)
-import gamesData from '../../assets/BDD-test';
-
 function App() {
   return (
     <div className="App">
@@ -24,11 +21,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Contact" element={<ContactPage />} />
-        <Route
-          path="/liste-de-jeux"
-          element={<GamesList gamesData={gamesData} />}
-        />
-        <Route path="/nom-du-jeu" element={<GamePage />} />
+        <Route path="/liste-de-jeux" element={<GamesList />} />
+        <Route path="/:slug" element={<GamePage />} />
         <Route path="/Connexion" element={<Settings />} />
         <Route path="/Inscription" element={<InscriptionPage />} />
         <Route path="/apropos" element={<Apropos />} />
