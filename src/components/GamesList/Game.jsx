@@ -32,7 +32,7 @@ const Game = ({ name, description, category, price, status, image }) => {
         <h3>{name}</h3>
         <p>{description}</p>
         <p className="tags-games-list">{category.name}</p>
-        <strong className="price-games-list">{price}</strong>
+        <strong className="price-games-list">à partir de {price}</strong>
       </div>
 
       <div className="favorite">

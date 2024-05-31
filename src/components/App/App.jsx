@@ -15,6 +15,7 @@ import InscriptionPage from '../../InscsriptionPage/InscriptionPage';
 import Apropos from '../Apropos/Apropos';
 import FavoritePage from '../FavoritePage/FavoritePage';
 import LocationPage from '../LocationsPage/LocationPage';
+import ErrorPage from '../ErrorPage/ErrorPage';
 
 function App() {
   return (
@@ -24,12 +25,13 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/Contact" element={<ContactPage />} />
         <Route path="/liste-de-jeux" element={<GamesList />} />
-        <Route path="/:slug" element={<GamePage />} />
+        <Route path="/nomdujeu" element={<GamePage />} />
         <Route path="/Connexion" element={<Settings />} />
         <Route path="/Inscription" element={<InscriptionPage />} />
         <Route path="/apropos" element={<Apropos />} />
         <Route path="/favoris" element={<FavoritePage />} />
         <Route path="/locations" element={<LocationPage />} />
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
       <NavigationMobile />
       <MenuFooter />
