@@ -14,6 +14,7 @@ import Settings from '../Settings/Settings';
 import InscriptionPage from '../../InscsriptionPage/InscriptionPage';
 import Apropos from '../Apropos/Apropos';
 import FavoritePage from '../FavoritePage/FavoritePage';
+import LocationPage from '../LocationsPage/LocationPage';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path="/Inscription" element={<InscriptionPage />} />
         <Route path="/apropos" element={<Apropos />} />
         <Route path="/favoris" element={<FavoritePage />} />
+        <Route path="/locations" element={<LocationPage />} />
       </Routes>
       <NavigationMobile />
       <MenuFooter />

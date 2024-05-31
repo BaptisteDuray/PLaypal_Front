@@ -11,7 +11,7 @@ const HeaderButton = () => {
         <Link className="btnGrad" to="/favoris">
           Mes favoris
         </Link>
-        <Link className="btnGrad" to="*">
+        <Link className="btnGrad" to="/locations">
           Mes locations
         </Link>
       </div>
