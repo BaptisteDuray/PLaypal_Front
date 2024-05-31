@@ -8,7 +8,7 @@ const HeaderButton = () => {
         <Link className="btnGrad" to="/liste-de-jeux">
           Les jeux
         </Link>
-        <Link className="btnGrad" to="*">
+        <Link className="btnGrad" to="/favoris">
           Mes favoris
         </Link>
         <Link className="btnGrad" to="*">
