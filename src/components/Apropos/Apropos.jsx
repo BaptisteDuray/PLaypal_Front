@@ -1,82 +1,90 @@
+import './Apropos.scss';
+import backgroundImage from '../../assets/image/background-img.jpg';
+
 const Apropos = () => {
   return (
-    <div className="Apropos">
-      <header>
-        <h1>À propos de Playpal</h1>
-      </header>
+    <div className="apropos">
       <main>
         <section id="notre-histoire">
-          <h2>Notre Histoire</h2>
-          <p>
-            Bienvenue sur Playpal, votre destination de choix pour la location
-            de jeux de société. Nous sommes passionnés par les jeux de société
-            et nous croyons fermement qu'ils sont un excellent moyen de
-            rassembler les gens, de créer des liens et de passer des moments
-            inoubliables. Notre mission est de rendre les jeux de société
-            accessibles à tous, en offrant une large gamme de jeux à louer pour
-            toutes les occasions.
-          </p>
-          <p>
-            Playpal est né de la passion commune de quatre amis pour les jeux de
-            société : Estelle, Baptiste, Maxime et Mouloud. Nous nous sommes
-            rencontrés lors d'une soirée de jeux et avons rapidement découvert
-            que nous partagions non seulement une passion pour les jeux, mais
-            aussi un désir de partager cette passion avec le plus grand nombre.
-            C'est ainsi qu'est née l'idée de Playpal.
-          </p>
-          <p>
-            Nous avons constaté qu'il n'était pas toujours facile d'accéder à
-            une variété de jeux de société sans investir dans chaque jeu
-            individuellement. Nous voulions offrir une solution pratique et
-            abordable pour les amateurs de jeux, les familles et les groupes
-            d'amis, en leur permettant de louer des jeux de société pour
-            découvrir de nouveaux favoris sans se ruiner.
-          </p>
+          <div className="bloc-histoire">
+            <h2>Notre Histoire</h2>
+            <p>
+              Bienvenue sur Playpal, votre destination de choix pour la location
+              de jeux de société. Nous sommes passionnés par les jeux de société
+              et nous croyons fermement qu'ils sont un excellent moyen de
+              rassembler les gens, de créer des liens et de passer des moments
+              inoubliables. Notre mission est de rendre les jeux de société
+              accessibles à tous, en offrant une large gamme de jeux à louer
+              pour toutes les occasions.
+            </p>
+            <p>
+              Playpal est né de la passion commune de quatre amis pour les jeux
+              de société : Estelle, Baptiste, Maxime et Mouloud. Nous nous
+              sommes rencontrés lors d'une soirée de jeux et avons rapidement
+              découvert que nous partagions non seulement une passion pour les
+              jeux, mais aussi un désir de partager cette passion avec le plus
+              grand nombre. C'est ainsi qu'est née l'idée de Playpal.
+            </p>
+            <p>
+              Nous avons constaté qu'il n'était pas toujours facile d'accéder à
+              une variété de jeux de société sans investir dans chaque jeu
+              individuellement. Nous voulions offrir une solution pratique et
+              abordable pour les amateurs de jeux, les familles et les groupes
+              d'amis, en leur permettant de louer des jeux de société pour
+              découvrir de nouveaux favoris sans se ruiner.
+            </p>
+          </div>
+          <div className="bloc-image">
+            <img src={backgroundImage} alt="" />
+          </div>
         </section>
 
         <section id="notre-equipe">
-          <h2>Notre Équipe</h2>
-          <ul>
-            <li>
-              <h3>Estelle</h3>
-              <p>
-                Co-fondatrice et responsable des relations clients. Estelle est
-                passionnée par le service à la clientèle et s'assure que chaque
-                client ait une expérience positive avec Playpal. Son jeu préféré
-                est Catan, et elle adore organiser des soirées jeux pour ses
-                amis et sa famille.
-              </p>
-            </li>
-            <li>
-              <h3>Baptiste</h3>
-              <p>
-                Co-fondateur et responsable des opérations. Baptiste veille à ce
-                que notre collection de jeux soit toujours bien entretenue et
-                prête à être louée. Il est également en charge de la logistique
-                et de la gestion des stocks. Son jeu préféré est Ticket to Ride.
-              </p>
-            </li>
-            <li>
-              <h3>Maxime</h3>
-              <p>
-                Co-fondateur et responsable du marketing. Maxime s'occupe de
-                faire connaître Playpal à travers divers canaux de
-                communication. Il est toujours à la recherche de nouvelles idées
-                pour promouvoir nos services et atteindre plus de joueurs. Son
-                jeu préféré est Carcassonne.
-              </p>
-            </li>
-            <li>
-              <h3>Mouloud</h3>
-              <p>
-                Co-fondateur et responsable de la sélection des jeux. Mouloud
-                est notre expert en jeux de société, toujours à l'affût des
-                dernières nouveautés et des classiques intemporels. Il s'assure
-                que notre catalogue de jeux soit diversifié et passionnant. Son
-                jeu préféré est Pandemic.
-              </p>
-            </li>
-          </ul>
+          <div className="bloc-equipe">
+            <h2>Notre Équipe</h2>
+            <ul>
+              <li>
+                <h3>Estelle</h3>
+                <p>
+                  Co-fondatrice et responsable des relations clients. Estelle
+                  est passionnée par le service à la clientèle et s'assure que
+                  chaque client ait une expérience positive avec Playpal. Son
+                  jeu préféré est Catan, et elle adore organiser des soirées
+                  jeux pour ses amis et sa famille.
+                </p>
+              </li>
+              <li>
+                <h3>Baptiste</h3>
+                <p>
+                  Co-fondateur et responsable des opérations. Baptiste veille à
+                  ce que notre collection de jeux soit toujours bien entretenue
+                  et prête à être louée. Il est également en charge de la
+                  logistique et de la gestion des stocks. Son jeu préféré est
+                  Ticket to Ride.
+                </p>
+              </li>
+              <li>
+                <h3>Maxime</h3>
+                <p>
+                  Co-fondateur et responsable du marketing. Maxime s'occupe de
+                  faire connaître Playpal à travers divers canaux de
+                  communication. Il est toujours à la recherche de nouvelles
+                  idées pour promouvoir nos services et atteindre plus de
+                  joueurs. Son jeu préféré est Carcassonne.
+                </p>
+              </li>
+              <li>
+                <h3>Mouloud</h3>
+                <p>
+                  Co-fondateur et responsable de la sélection des jeux. Mouloud
+                  est notre expert en jeux de société, toujours à l'affût des
+                  dernières nouveautés et des classiques intemporels. Il
+                  s'assure que notre catalogue de jeux soit diversifié et
+                  passionnant. Son jeu préféré est Pandemic.
+                </p>
+              </li>
+            </ul>
+          </div>
         </section>
 
         <section id="nos-services">
@@ -139,9 +147,6 @@ const Apropos = () => {
           </ul>
         </section>
       </main>
-      <footer>
-        <p>&copy; 2024 Playpal. Tous droits réservés.</p>
-      </footer>
     </div>
   );
 };
