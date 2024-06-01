@@ -124,7 +124,7 @@ const reducer = (state = initialState, action = {}) => {
     case HANDLE_SUCCESSFUL_LOGIN:
       return {
         ...state,
-        username: action.username,
+
         token: action.token,
         logged: true,
       };

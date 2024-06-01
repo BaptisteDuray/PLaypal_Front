@@ -20,12 +20,10 @@ const authMiddleware = (store) => (next) => (action) => {
           }
         )
         .then((response) => {
-          console.log(response);
+          //console.log(response);
           //console.log(response.data.token);
 
-          store.dispatch(
-            handleSuccessfulLogin(response.data.pseudo, response.data.token)
-          );
+          store.dispatch(handleSuccessfulLogin(response.data.token));
         })
         .catch((error) => {
           console.log(error);
