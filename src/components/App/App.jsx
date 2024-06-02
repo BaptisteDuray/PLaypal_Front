@@ -20,7 +20,7 @@ import { fetchGames } from '../../actions/search';
 
 function App() {
   const dispatch = useDispatch();
-  // const gamesList = useSelector((state) => state.list);
+  const gamesList = useSelector((state) => state.list);
   const isGamesLoaded = useSelector((state) => state.isGamesLoaded);
 
   useEffect(() => {

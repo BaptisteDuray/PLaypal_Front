@@ -7,6 +7,7 @@ export const SUBMIT_SEARCH = 'SUBMIT_SEARCH';
 export const SUBMIT_CONTACT = 'SUBMIT_CONTACT';
 export const SUBMIT_INSCRIPTION = 'SUBMIT_INSCRIPTION';
 export const HANDLE_SUCCESSFUL_LOGIN = 'HANDLE_SUCCESSFUL_LOGIN';
+export const LOGOUT = 'LOGOUT';
 
 //ACTIONS POUR LES JEUX
 export const SAVE_GAMES = 'SAVE_GAMES';
@@ -67,11 +68,16 @@ export const handleSuccessfulLogin = (token) => ({
   token,
 });
 
+export const logout = () => ({
+  type: LOGOUT,
+});
+
 export const fetchFavoriteGames = () => ({
   type: FETCH_FAVORITE_GAMES,
 });
-export const addItemToFav = (state, action) => ({
+export const addItemToFav = (value) => ({
   type: ADD_ITEM_TO_FAV,
+  payload: value,
 });
 export const addItemToLoc = (game) => ({
   type: ADD_ITEM_TO_LOC,

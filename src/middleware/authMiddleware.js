@@ -24,12 +24,12 @@ const authMiddleware = (store) => (next) => (action) => {
           }
         )
         .then((response) => {
-          //console.log(response);
-          //console.log(response.data.token);
+          console.log(response);
+          console.log(response.data.token);
 
           store.dispatch(handleSuccessfulLogin(response.data.token));
 
-          store.dispatch(fetchFavoriteGames());
+          store.dispatch(fetchFavoriteGames(response.data.content_favorite));
         })
         .catch((error) => {
           console.log(error);

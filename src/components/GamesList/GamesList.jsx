@@ -4,15 +4,15 @@ import Game from './Game';
 import backgroundImage from '../../assets/image/background-img.jpg';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import { fetchGames } from '../../actions/search';
+import { fetchGames } from '../../actions/search';
 
 const GamesList = () => {
   const dispatch = useDispatch();
   const gamesList = useSelector((state) => state.list);
 
-  // useEffect(() => {
-  //   dispatch(fetchGames());
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(fetchGames());
+  }, [dispatch]);
 
   return (
     <div className="game-list-desktop">

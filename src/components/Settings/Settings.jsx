@@ -1,7 +1,7 @@
 import Field from '../Field/Field';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { changeSettingsField, submitLogin } from '../../actions/search';
 
 import './Settings.scss';
@@ -9,6 +9,13 @@ import './Settings.scss';
 const Settings = () => {
   const emailValue = useSelector((state) => state.email);
   const passwordValue = useSelector((state) => state.password);
+  const isLogged = useSelector((state) => state.logged);
+
+  if (isLogged) {
+    return <Navigate to="/liste-de-jeux" />;
+  } else {
+    <Navigate to="/" />;
+  }
 
   const dispatch = useDispatch();
 
