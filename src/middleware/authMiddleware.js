@@ -1,6 +1,10 @@
 import axios from 'axios';
 
-import { SUBMIT_LOGIN, HANDLE_SUCCESSFUL_LOGIN } from '../actions/search';
+import {
+  SUBMIT_LOGIN,
+  handleSuccessfulLogin,
+  fetchFavoriteGames,
+} from '../actions/search';
 //HANDLE_SUCCESSFUL_LOGIN
 // A middleware for the authentification (here to manage the communication with the server for the authentification)
 
@@ -24,6 +28,8 @@ const authMiddleware = (store) => (next) => (action) => {
           //console.log(response.data.token);
 
           store.dispatch(handleSuccessfulLogin(response.data.token));
+
+          store.dispatch(fetchFavoriteGames());
         })
         .catch((error) => {
           console.log(error);

@@ -7,6 +7,7 @@ import {
   ADD_ITEM_TO_FAV,
   ADD_ITEM_TO_LOC,
   SAVE_GAMES,
+  SAVE_FAVORITE_GAMES,
 } from '../actions/search';
 
 const initialState = {
@@ -128,6 +129,12 @@ const reducer = (state = initialState, action = {}) => {
         token: action.token,
         logged: true,
       };
+    case SAVE_FAVORITE_GAMES:
+      return {
+        ...state,
+        itemsFav: action.games,
+      };
+
     default:
       return state;
   }
