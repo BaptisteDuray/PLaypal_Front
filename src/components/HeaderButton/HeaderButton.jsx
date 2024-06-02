@@ -26,9 +26,15 @@ const HeaderButton = ({}) => {
 
       <div className="guestButton">
         {isLogged ? (
-          <Link className="btnGrad" to="/connexion" onClick={handleLogout}>
-            Déconnexion
-          </Link>
+          <>
+            <Link className="btnGrad" to="/contact">
+              Contact
+            </Link>
+
+            <Link className="btnGrad" to="/connexion" onClick={handleLogout}>
+              Déconnexion
+            </Link>
+          </>
         ) : (
           <>
             <Link className="btnGrad" to="/contact">

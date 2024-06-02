@@ -17,6 +17,7 @@ import InscriptionPage from '../../InscsriptionPage/InscriptionPage';
 import Apropos from '../Apropos/Apropos';
 import Loading from './Loading/Loading';
 import { fetchGames } from '../../actions/search';
+import FavoritePage from '../FavoritePage/FavoritePage';
 
 function App() {
   const dispatch = useDispatch();
@@ -41,6 +42,7 @@ function App() {
         <Route path="/Connexion" element={<Settings />} />
         <Route path="/Inscription" element={<InscriptionPage />} />
         <Route path="/apropos" element={<Apropos />} />
+        <Route path="/mes-favoris" element={<FavoritePage />} />
       </Routes>
       <NavigationMobile />
       <MenuFooter />

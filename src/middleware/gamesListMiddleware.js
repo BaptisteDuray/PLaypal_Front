@@ -26,7 +26,7 @@ const gamesListMiddleware = (store) => (next) => (action) => {
     case FETCH_FAVORITE_GAMES:
       axios
         .get(
-          'https://backend.baptisteduray-server.eddi.cloud/api/jeu',
+          'https://backend.baptisteduray-server.eddi.cloud/api/favoris/',
 
           {
             headers: {

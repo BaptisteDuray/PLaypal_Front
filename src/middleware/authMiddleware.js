@@ -15,7 +15,7 @@ const authMiddleware = (store) => (next) => (action) => {
         .post(
           // URL
           'https://backend.baptisteduray-server.eddi.cloud/api/login_check',
-          // données https://backend.baptisteduray-server.eddi.cloud/
+
           {
             username: store.getState().email, //remplacer username par email si ça ne marche pas
             password: store.getState().password,
@@ -29,7 +29,9 @@ const authMiddleware = (store) => (next) => (action) => {
 
           store.dispatch(handleSuccessfulLogin(response.data.token));
 
-          store.dispatch(fetchFavoriteGames(response.data.content_favorite));
+          // console.log(response.data.content_favorite);
+
+          store.dispatch(fetchFavoriteGames());
         })
         .catch((error) => {
           console.log(error);
