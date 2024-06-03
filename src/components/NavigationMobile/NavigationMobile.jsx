@@ -1,30 +1,35 @@
 import './NavigationMobile.scss';
 import { Link } from 'react-router-dom';
+import pawn from '../../assets/icon/pawn-icon2.png';
+import fav from '../../assets/icon/fav2.png';
+import search from '../../assets/icon/loupe-icone2.png';
+import loc from '../../assets/icon/agenda-icon2.png';
+import connect from '../../assets/icon/avatar2.png';
 
 const NavigationMobile = () => {
   return (
     <div className="NavigationMobile">
       <Link className="BlocIcon" to="/liste-de-jeux">
-        <img src="/src/assets/icon/pawn-icon2.png" alt="pion" />
+        <img src={pawn} alt="pion" />
         <span>Les jeux</span>
       </Link>
 
       <a href="*" className="BlocIcon">
-        <img src="/src/assets/icon/fav2.png" alt="favoris" />
+        <img src={fav} alt="favoris" />
         <span>Mes favoris</span>
       </a>
 
       <Link className="BlocIcon" to="/">
-        <img src="/src/assets/icon/loupe-icone2.png" alt="loupe recherche" />
+        <img src={search} alt="loupe recherche" />
         <span>Recherches</span>
       </Link>
 
       <a href="*" className="BlocIcon">
-        <img src="/src/assets/icon/agenda-icon2.png" alt="agenda" />
+        <img src={loc} alt="agenda" />
         <span>Mes Locations</span>
       </a>
       <Link className="BlocIcon" to="/Connexion">
-        <img src="/src/assets/icon/avatar2.png" alt="compte" />
+        <img src={connect} alt="compte" />
         <span>connexion</span>
       </Link>
     </div>
