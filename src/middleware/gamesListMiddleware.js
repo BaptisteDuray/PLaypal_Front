@@ -49,8 +49,11 @@ const gamesListMiddleware = (store) => (next) => (action) => {
         .post(
           'https://backend.baptisteduray-server.eddi.cloud/api/favoris/add',
 
+          { gameId: action.payload.id },
           {
-            gameId: action.payload.id,
+            headers: {
+              Authorization: `Bearer ${store.getState().token}`,
+            },
           }
         )
 
