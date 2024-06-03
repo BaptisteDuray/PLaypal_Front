@@ -1,7 +1,15 @@
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import './HeaderButton.scss';
 
-const HeaderButton = () => {
+import { useSelector, useDispatch } from 'react-redux';
+
+const HeaderButton = ({}) => {
+  const isLogged = useSelector((state) => state.logged);
+  const dispatch = useDispatch();
+  const handleLogout = () => {
+    dispatch(logout());
+  };
   return (
     <div className="HeaderButton">
       <div className="userButton">
@@ -17,18 +25,37 @@ const HeaderButton = () => {
       </div>
 
       <div className="guestButton">
-        <Link className="btnGrad" to="/Contact">
-          Contact
-        </Link>
-        <Link className="btnGrad" to="/Inscription">
-          Inscription
-        </Link>
-        <Link className="btnGrad" to="/Connexion">
-          Connexion
-        </Link>
+        {isLogged ? (
+          <>
+            <Link className="btnGrad" to="/contact">
+              Contact
+            </Link>
+
+            <Link className="btnGrad" to="/connexion" onClick={handleLogout}>
+              Déconnexion
+            </Link>
+          </>
+        ) : (
+          <>
+            <Link className="btnGrad" to="/contact">
+              Contact
+            </Link>
+            <Link className="btnGrad" to="/inscription">
+              Inscription
+            </Link>
+            <Link className="btnGrad" to="/connexion">
+              Connexion
+            </Link>
+          </>
+        )}
       </div>
     </div>
   );
+};
+
+HeaderButton.propTypes = {
+  /** Indique si l'utilisateur est connecté */
+  logged: PropTypes.bool.isRequired,
 };
 
 export default HeaderButton;

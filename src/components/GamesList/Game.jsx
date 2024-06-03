@@ -12,6 +12,11 @@ const Game = ({ name, description, category, price, status, image }) => {
 
   const dispatch = useDispatch();
 
+  const handleFav = (event) => {
+    event.preventDefault();
+    dispatch(addItemToFav);
+  };
+
   // test pour la dynamisation de game
 
   // TODO 3. dynamiser les info grace au donnée de gamesData
@@ -37,17 +42,7 @@ const Game = ({ name, description, category, price, status, image }) => {
 
       <div className="favorite">
         <div className="available-tag">{status}</div>
-        <button
-          className="btn-back-fav"
-          type="button"
-          onClick={(event) => {
-            event.preventDefault();
-            console.log('submit');
-            /* on envoie une action, qui déclenchera une requete en passant par
-authMiddleware */
-            dispatch(addItemToFav());
-          }}
-        >
+        <button className="btn-back-fav" type="button" onClick={handleFav}>
           <img src={iconFav} alt="ajouter à mes favoris" />
         </button>
       </div>

@@ -7,7 +7,13 @@ export const SUBMIT_SEARCH = 'SUBMIT_SEARCH';
 export const SUBMIT_CONTACT = 'SUBMIT_CONTACT';
 export const SUBMIT_INSCRIPTION = 'SUBMIT_INSCRIPTION';
 export const HANDLE_SUCCESSFUL_LOGIN = 'HANDLE_SUCCESSFUL_LOGIN';
+export const LOGOUT = 'LOGOUT';
+
+//ACTIONS POUR LES JEUX
 export const SAVE_GAMES = 'SAVE_GAMES';
+export const FETCH_FAVORITE_GAMES = 'FETCH_FAVORITE_GAMES';
+export const SAVE_FAVORITE_GAMES = 'SAVE_FAVORITE_GAMES';
+
 export const FETCH_GAMES = 'FETCH_GAMES';
 // ajout d'une action pour ajouter en favoris
 export const ADD_ITEM_TO_FAV = 'ADD_ITEM_TO_FAV';
@@ -20,6 +26,12 @@ export const saveGames = (games) => ({
   type: SAVE_GAMES,
   games,
 });
+
+export const saveFavoriteGames = (games) => ({
+  type: SAVE_FAVORITE_GAMES,
+  games,
+});
+
 export const changeInputMessage = (newValue) => ({
   type: CHANGE_INPUT_MESSAGE,
   value: newValue,
@@ -51,13 +63,22 @@ export const submitInscription = () => ({
 export const submitContact = () => ({
   type: SUBMIT_CONTACT,
 });
-export const handleSuccessfulLogin = (username, token) => ({
+export const handleSuccessfulLogin = (token) => ({
   type: HANDLE_SUCCESSFUL_LOGIN,
-  username,
+
   token,
 });
-export const addItemToFav = (state, action) => ({
+
+export const logout = () => ({
+  type: LOGOUT,
+});
+
+export const fetchFavoriteGames = () => ({
+  type: FETCH_FAVORITE_GAMES,
+});
+export const addItemToFav = (value) => ({
   type: ADD_ITEM_TO_FAV,
+  payload: value,
 });
 export const addItemToLoc = (game) => ({
   type: ADD_ITEM_TO_LOC,

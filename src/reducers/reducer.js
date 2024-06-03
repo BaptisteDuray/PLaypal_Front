@@ -3,10 +3,12 @@ import {
   CHANGE_SETTINGS_CONTACT,
   CHANGE_SETTINGS_FIELD,
   HANDLE_SUCCESSFUL_LOGIN,
+  LOGOUT,
   CHANGE_SETTINGS_INSCRIPTION,
   ADD_ITEM_TO_FAV,
   ADD_ITEM_TO_LOC,
   SAVE_GAMES,
+  SAVE_FAVORITE_GAMES,
 } from '../actions/search';
 
 const initialState = {
@@ -24,7 +26,7 @@ const initialState = {
   emailInscription: '',
   emailContact: '',
   messageInscription: '',
-  contactNumber: '',
+  // contactNumber: '',
   attachment: '',
   list: [],
   itemsFav: [],
@@ -124,10 +126,26 @@ const reducer = (state = initialState, action = {}) => {
     case HANDLE_SUCCESSFUL_LOGIN:
       return {
         ...state,
-        username: action.username,
+
         token: action.token,
         logged: true,
       };
+    case LOGOUT:
+      return {
+        ...state,
+        logged: false,
+      };
+    case ADD_ITEM_TO_FAV:
+      return {
+        ...state,
+        payload,
+      };
+    case SAVE_FAVORITE_GAMES:
+      return {
+        ...state,
+        itemsFav: action.games,
+      };
+
     default:
       return state;
   }
