@@ -6,6 +6,7 @@ import {
 } from '../actions/search';
 
 import Field from '../components/Field/Field';
+import './InscriptionPage.scss';
 
 const InscriptionPage = () => {
   const firstnameInscriptionValue = useSelector(
@@ -93,6 +94,10 @@ const InscriptionPage = () => {
           >
             Envoyer
           </button>
+
+          <div className="validation-inscription">
+            <p>Inscription validée !</p>
+          </div>
         </form>
       </div>
     </div>
