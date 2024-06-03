@@ -25,7 +25,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/Contact" element={<ContactPage />} />
         <Route path="/liste-de-jeux" element={<GamesList />} />
-        <Route path="/nomdujeu" element={<GamePage />} />
+        <Route path="/liste-de-jeux/:slug" element={<GamePage />} />
         <Route path="/Connexion" element={<Settings />} />
         <Route path="/Inscription" element={<InscriptionPage />} />
         <Route path="/apropos" element={<Apropos />} />

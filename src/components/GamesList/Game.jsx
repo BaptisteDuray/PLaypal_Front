@@ -21,7 +21,7 @@ const Game = ({ name, description, category, price, status, image }) => {
       <div className="game-image">
         <img src={image} alt="la boite du jeu" />
 
-        <Link className="CardGameLink" to="/nom-du-jeu">
+        <Link className="CardGameLink" to={`/liste-de-jeux/${name}`}>
           <button className="btn-view-game" type="button">
             voir le jeu
           </button>
