@@ -31,6 +31,7 @@ export const saveFavoriteGames = (games) => ({
   type: SAVE_FAVORITE_GAMES,
   games,
 });
+
 export const changeInputMessage = (newValue) => ({
   type: CHANGE_INPUT_MESSAGE,
   value: newValue,

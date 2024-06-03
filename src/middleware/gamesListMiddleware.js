@@ -35,8 +35,8 @@ const gamesListMiddleware = (store) => (next) => (action) => {
           }
         )
         .then((response) => {
-          console.log(response);
-          store.dispatch(saveFavoriteGames(response.data.content_favorite));
+          console.log('fetch favorite games', response.data);
+          store.dispatch(saveFavoriteGames(response.data));
         })
         .catch((error) => {
           console.log(error);

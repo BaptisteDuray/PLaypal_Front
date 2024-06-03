@@ -11,7 +11,7 @@ const contactMiddleware = (store) => (next) => (action) => {
           Name: store.getState().name,
           Company: store.getState().company,
           mail: store.getState().emailContact,
-          contactNumber: store.getState().contactNumber,
+          contact_number: store.getState().contactNumber,
           message: store.getState().message,
         })
         .then((response) => {
