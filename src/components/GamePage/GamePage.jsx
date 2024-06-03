@@ -2,13 +2,25 @@
 // quand on clique sur la carte d'un jeu
 
 import { useSelector, useDispatch } from 'react-redux';
+import { findGame } from '../../Selector/games';
 
 import './GamePage.scss';
+// eslint-disable-next-line import/order
+import { useParams } from 'react-router';
 import defaultImage from '../../assets/icon/pawn-icon.png';
 import iconFav from '../../assets/icon/fav2.png';
 import { addItemToFav, addItemToLoc } from '../../actions/search';
 
 const Game = () => {
+  // TODO trouver le jeux grace a son url (on utilise des parametre)
+  const { slug } = useParams();
+  const gameData = useSelector((state) => findGame(state.list, slug));
+
+  console.log('Jeu trouvé :', slug);
+  console.log(gameData);
+
+  // TODO fav et loc
+
   const itemsFavValue = useSelector((state) => state.itemsFav);
   const itemsLocValue = useSelector((state) => state.itemsLoc);
 
@@ -16,7 +28,7 @@ const Game = () => {
   return (
     <article className="cardgame-page">
       <div className="article-desktop-left">
-        <h3>Nom du jeu</h3>
+        <h3>{gameData?.Name || 'Nom du jeu non défini'}</h3>
         <div className="available-tag"> ●Disponible</div>
 
         <div className="game-image">

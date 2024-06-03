@@ -1,14 +1,21 @@
 import { Link } from 'react-router-dom';
+
 import './MenuFooter.scss';
 
 const MenuFooter = () => {
   return (
     <div className="MenuFooter">
       <ul className="list-menu-footer">
-        <li>A propos</li>
+        <Link className="btnFooter" to="/Apropos">
+          <li>A propos</li>
+        </Link>
 
-        <li>Conditions générales de vente</li>
-        <li>Mentions légales</li>
+        <Link className="btnFooter" to="/">
+          <li>Conditions générales de vente</li>
+        </Link>
+        <Link className="btnFooter" to="/">
+          <li>Mentions Légales</li>
+        </Link>
       </ul>
       <p>copyright playpal 2024</p>
     </div>
