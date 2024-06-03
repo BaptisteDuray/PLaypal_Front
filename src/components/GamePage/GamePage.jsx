@@ -29,23 +29,17 @@ const Game = () => {
     <article className="cardgame-page">
       <div className="article-desktop-left">
         <h3>{gameData?.name || 'Nom du jeu non défini'}</h3>
-        <div className="available-tag"> ●Disponible</div>
+        <div className="available-tag">{gameData.status}</div>
 
         <div className="game-image">
-          <img src={defaultImage} alt="la boite du jeu" />
+          <img src={gameData.image} alt="la boite du jeu" />
         </div>
       </div>
 
       <div className="article-desktop-right">
         <div className="informations">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit sint
-            tempora, vero eveniet reprehenderit, hic ea voluptates iure sed et
-            commodi, vel dolore illo! Aliquam quas recusandae unde nam nemo!
-            vero eveniet reprehenderit, hic ea voluptates iure sed et commodi,
-            vel dolore illo! Aliquam quas recusandae unde nam nemo!
-          </p>
-          <p className="tags-games-list">les tags</p>
+          <p>{gameData.description}</p>
+          <p className="tags-games-list">{gameData.category.name}</p>
         </div>
 
         <div className="reservation">
@@ -54,7 +48,7 @@ const Game = () => {
             <option value="option1">pour 72 heures</option>
             <option value="option2">pour 1 semaine</option>
           </select>
-          <strong className="price-games-list">10€</strong>
+          <strong className="price-games-list">{gameData.price}</strong>
         </div>
 
         <div className="btn">
