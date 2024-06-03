@@ -21,6 +21,7 @@ const GamesList = () => {
         {gamesList.map((game) => (
           <Game
             key={game.id}
+            id={game.id}
             name={game.Name}
             description={game.Description}
             category={game.category}

@@ -6,7 +6,26 @@ import { Link } from 'react-router-dom';
 import './FavoritePage.scss';
 
 const FavoritePage = () => {
-  return <div className="favorite-list">la liste des favoris</div>;
+  const favoriteGames = useSelector((state) => state.itemsFav);
+
+  return (
+    <div className="gamesList">
+      <h1 className="title">Mes Favoris</h1>
+
+      {favoriteGames.map((game) => (
+        <Game
+          key={game.id}
+          id={game.id}
+          name={game.name}
+          description={game.description}
+          category={game.name}
+          price={game.price}
+          status={game.status}
+          image={game.image}
+        />
+      ))}
+    </div>
+  );
 };
 
 export default FavoritePage;

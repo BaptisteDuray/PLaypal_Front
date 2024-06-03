@@ -12,23 +12,23 @@ import iconFav from '../../assets/icon/fav2.png';
 import { addItemToFav, addItemToLoc } from '../../actions/search';
 
 const Game = () => {
+  // TODO trouver le jeux grace a son url (on utilise des parametre)
+  const { slug } = useParams();
+  const gameData = useSelector((state) => state.selectedGame);
+
+  console.log('Jeu trouvé :', slug);
+  console.log(gameData);
+
   // TODO fav et loc
 
   const itemsFavValue = useSelector((state) => state.itemsFav);
   const itemsLocValue = useSelector((state) => state.itemsLoc);
 
   const dispatch = useDispatch();
-
-  // TODO trouver le jeux grace a son url (on utilise des parametre)
-  const { slug } = useParams();
-  const gameData = useSelector((state) => findGame(state.list, slug));
-  console.log('Jeu trouvé :', slug);
-  console.log({ gameData });
-
   return (
     <article className="cardgame-page">
       <div className="article-desktop-left">
-        <h3>{gameData?.Name || 'Nom du jeu non défini'}</h3>
+        <h3>{gameData?.name || 'Nom du jeu non défini'}</h3>
         <div className="available-tag"> ●Disponible</div>
 
         <div className="game-image">
@@ -66,7 +66,7 @@ const Game = () => {
               console.log('submit');
               /* on envoie une action, qui déclenchera une requete en passant par
 authMiddleware */
-              dispatch(addItemToLoc());
+              dispatch(addItemToLoc(gameData));
             }}
           >
             Louer le jeu
@@ -85,7 +85,7 @@ authMiddleware */
               console.log('submit');
               /* on envoie une action, qui déclenchera une requete en passant par
 authMiddleware */
-              dispatch(addItemToFav());
+              dispatch(addItemToFav(gameData));
             }}
           >
             <img src={iconFav} alt="ajouter à mes favoris" />
