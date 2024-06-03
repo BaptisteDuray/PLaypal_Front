@@ -78,6 +78,13 @@ const ContactPage = () => {
           <button type="submit" className="settings-submit">
             Envoyer
           </button>
+
+          <div className="validation-send-message">
+            <p>
+              Merci, votre message a bien été envoyé. Votre demande sera traitée
+              dans les plus brefs délais.
+            </p>
+          </div>
         </form>
       </div>
     </div>

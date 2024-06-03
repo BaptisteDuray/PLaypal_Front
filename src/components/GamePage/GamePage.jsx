@@ -12,7 +12,7 @@ import iconFav from '../../assets/icon/fav2.png';
 import { addItemToFav, addItemToLoc } from '../../actions/search';
 
 const Game = () => {
-  // TODO trouver le jeux grace a son url (on utilise des parametre)
+  // trouver le jeux grace a son url (on utilise des parametre)
   const { slug } = useParams();
   const gameData = useSelector((state) => state.selectedGame);
 
