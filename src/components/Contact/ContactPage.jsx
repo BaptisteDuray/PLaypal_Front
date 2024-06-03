@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
+import { useState } from 'react';
 import { changeSettingsContact, submitContact } from '../../actions/search';
 import Field from '../Field/Field';
 import './ContactPage.scss';
@@ -13,13 +14,27 @@ const ContactPage = () => {
 
   const dispatch = useDispatch();
 
+  // AFFICHAGE MESSAGE (avec useState) Ajout d'une variable d'état pour suivre l'état de la soumission du formulaire
+  const [formSubmitted, setFormSubmitted] = useState(false); // validé
+  const [formError, setFormError] = useState(false); // invalidé
+
   const handleFieldChange = (identifier, newValue) => {
     dispatch(changeSettingsContact(newValue, identifier));
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    // AFFICHAGE MESSAGE Vérifier si tous les champs obligatoires sont remplis
+    if (!firstnameValue || !nameValue || !emailValue || !messageValue) {
+      setFormError(true);
+      return;
+    }
+
     dispatch(submitContact());
+
+    // AFFICHAGE MESSAGE Définir formSubmitted sur true après une soumission réussie
+    setFormSubmitted(true);
   };
 
   return (
@@ -49,7 +64,6 @@ const ContactPage = () => {
             type="text"
             value={companyValue}
           />
-
           <Field
             identifier="emailContact"
             placeholder="cluedo@playpal.fr"
@@ -74,17 +88,26 @@ const ContactPage = () => {
             type="text"
             value={messageValue}
           />
-
           <button type="submit" className="settings-submit">
             Envoyer
           </button>
 
-          <div className="validation-send-message">
-            <p>
-              Merci, votre message a bien été envoyé. Votre demande sera traitée
-              dans les plus brefs délais.
-            </p>
-          </div>
+          {formSubmitted && (
+            <div className="validation-send-message">
+              <p>
+                Merci, votre message a bien été envoyé. Votre demande sera
+                traitée dans les plus brefs délais.
+              </p>
+            </div>
+          )}
+          {formError && (
+            <div className="error-message">
+              <p>
+                Veuillez remplir tous les champs obligatoires avant d'envoyer le
+                formulaire.
+              </p>
+            </div>
+          )}
         </form>
       </div>
     </div>
