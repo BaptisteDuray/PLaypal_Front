@@ -18,6 +18,9 @@ import Apropos from '../Apropos/Apropos';
 import Loading from './Loading/Loading';
 import { fetchGames } from '../../actions/search';
 import FavoritePage from '../FavoritePage/FavoritePage';
+// import FavoritePage from '../FavoritePage/FavoritePage';
+import LocationPage from '../LocationsPage/LocationPage';
+import ErrorPage from '../ErrorPage/ErrorPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -38,11 +41,13 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/Contact" element={<ContactPage />} />
         <Route path="/liste-de-jeux" element={<GamesList />} />
-        <Route path="/:slug" element={<GamePage />} />
+        <Route path="/liste-de-jeux/:slug" element={<GamePage />} />
         <Route path="/Connexion" element={<Settings />} />
         <Route path="/Inscription" element={<InscriptionPage />} />
         <Route path="/apropos" element={<Apropos />} />
-        <Route path="/mes-favoris" element={<FavoritePage />} />
+        <Route path="/favoris" element={<FavoritePage />} />
+        <Route path="/locations" element={<LocationPage />} />
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
       <NavigationMobile />
       <MenuFooter />

@@ -1,0 +1,28 @@
+@import '/src/styles/variables';
+
+.apropos {
+  margin: 2rem;
+  justify-content: center;
+  display: flex;
+  h2,
+  h3 {
+    font-family: 'Alfa Slab One', serif;
+    color: $primary-color;
+    margin: 1rem;
+  }
+
+  p,
+  li {
+    margin: 1rem;
+    font-family: 'Akshar', sans-serif;
+    font-weight: 100;
+    text-align: justify;
+    color: $primary-color;
+  }
+  img {
+    width: 100%;
+  }
+  .bloc-histoire {
+    width: 100%;
+  }
+}

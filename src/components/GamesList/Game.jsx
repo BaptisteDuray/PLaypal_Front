@@ -26,7 +26,7 @@ const Game = ({ name, description, category, price, status, image }) => {
       <div className="game-image">
         <img src={image} alt="la boite du jeu" />
 
-        <Link className="CardGameLink" to="/nom-du-jeu">
+        <Link className="CardGameLink" to={`/liste-de-jeux/${name}`}>
           <button className="btn-view-game" type="button">
             voir le jeu
           </button>
@@ -37,7 +37,7 @@ const Game = ({ name, description, category, price, status, image }) => {
         <h3>{name}</h3>
         <p>{description}</p>
         <p className="tags-games-list">{category.name}</p>
-        <strong className="price-games-list">{price}</strong>
+        <strong className="price-games-list">à partir de {price}</strong>
       </div>
 
       <div className="favorite">

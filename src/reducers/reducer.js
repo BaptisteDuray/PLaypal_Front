@@ -26,7 +26,7 @@ const initialState = {
   emailInscription: '',
   emailContact: '',
   messageInscription: '',
-  contactNumber: '',
+  // contactNumber: '',
   attachment: '',
   list: [],
   itemsFav: [],

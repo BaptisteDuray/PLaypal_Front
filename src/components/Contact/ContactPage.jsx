@@ -8,7 +8,7 @@ const ContactPage = () => {
   const nameValue = useSelector((state) => state.name);
   const emailValue = useSelector((state) => state.emailContact);
   const messageValue = useSelector((state) => state.message);
-  const contactNumberValue = useSelector((state) => state.contactNumber);
+  //const contactNumberValue = useSelector((state) => state.contactNumber);
   const companyValue = useSelector((state) => state.company);
 
   const dispatch = useDispatch();
@@ -58,14 +58,14 @@ const ContactPage = () => {
             type="text"
             value={emailValue}
           />
-          <Field
+          {/* <Field
             identifier="contactNumber"
             placeholder="..."
             label="Numéro de téléphone"
             changeField={handleFieldChange}
             type="number"
             value={contactNumberValue}
-          />
+          /> */}
           <Field
             identifier="message"
             placeholder="..."
