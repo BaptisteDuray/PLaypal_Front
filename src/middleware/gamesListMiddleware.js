@@ -50,8 +50,7 @@ const gamesListMiddleware = (store) => (next) => (action) => {
           'https://backend.baptisteduray-server.eddi.cloud/api/favoris/add',
 
           {
-            id: action.payload.id,
-            name: action.payload.name,
+            gameId: action.payload.id,
           }
         )
 
