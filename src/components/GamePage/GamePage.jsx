@@ -84,7 +84,7 @@ authMiddleware */
               event.preventDefault();
               console.log('submit');
               /* on envoie une action, qui déclenchera une requete en passant par
-authMiddleware */
+authMiddleware (ne pas tenir compte de ce que j'ai ecrit)*/
               dispatch(addItemToFav(gameData));
             }}
           >
