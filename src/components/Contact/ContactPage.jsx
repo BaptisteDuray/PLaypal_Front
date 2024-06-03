@@ -31,6 +31,10 @@ const ContactPage = () => {
       return;
     }
 
+    // Supprimer les message précédent
+    setFormSubmitted(false);
+    setFormError(false);
+
     dispatch(submitContact());
 
     // AFFICHAGE MESSAGE Définir formSubmitted sur true après une soumission réussie
@@ -59,7 +63,7 @@ const ContactPage = () => {
           <Field
             identifier="company"
             placeholder="Playpal"
-            label="Société*"
+            label="Société"
             changeField={handleFieldChange}
             type="text"
             value={companyValue}
