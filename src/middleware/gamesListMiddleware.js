@@ -6,6 +6,7 @@ import {
   saveGames,
   saveFavoriteGames,
   ADD_ITEM_TO_FAV,
+  addItemToFav,
 } from '../actions/search';
 
 const gamesListMiddleware = (store) => (next) => (action) => {
@@ -44,11 +45,18 @@ const gamesListMiddleware = (store) => (next) => (action) => {
       break;
     case ADD_ITEM_TO_FAV:
       axios
-        .post('https://backend.baptisteduray-server.eddi.cloud/api/favoris/add')
+        .post(
+          'https://backend.baptisteduray-server.eddi.cloud/api/favoris/add',
+
+          {
+            id: action.value,
+          }
+        )
 
         .then((response) => {
           console.log(response);
-          store.dispatch(saveGames(response.data));
+          store.dispatch(addItemToFav());
+          store.dispatch(saveFavoriteGames(response.data));
         })
         .catch((error) => {
           console.log(error);
