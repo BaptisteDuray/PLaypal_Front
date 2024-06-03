@@ -11,6 +11,7 @@ export const LOGOUT = 'LOGOUT';
 
 //ACTIONS POUR LES JEUX
 export const SAVE_GAMES = 'SAVE_GAMES';
+export const SELECT_GAME = 'SELECT_GAME';
 export const FETCH_FAVORITE_GAMES = 'FETCH_FAVORITE_GAMES';
 export const SAVE_FAVORITE_GAMES = 'SAVE_FAVORITE_GAMES';
 
@@ -25,6 +26,11 @@ export const fetchGames = () => ({
 export const saveGames = (games) => ({
   type: SAVE_GAMES,
   games,
+});
+
+export const selectGame = (game) => ({
+  type: SELECT_GAME,
+  game,
 });
 
 export const saveFavoriteGames = (games) => ({
@@ -76,10 +82,15 @@ export const logout = () => ({
 export const fetchFavoriteGames = () => ({
   type: FETCH_FAVORITE_GAMES,
 });
-export const addItemToFav = (value) => ({
-  type: ADD_ITEM_TO_FAV,
-  payload: value,
-});
+export const addItemToFav = (value) => {
+  console.log(value);
+
+  return {
+    type: ADD_ITEM_TO_FAV,
+    payload: value,
+  };
+};
+
 export const addItemToLoc = (game) => ({
   type: ADD_ITEM_TO_LOC,
 });

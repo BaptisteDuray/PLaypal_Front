@@ -10,6 +10,7 @@ import {
 } from '../actions/search';
 
 const gamesListMiddleware = (store) => (next) => (action) => {
+  console.log(action);
   switch (action.type) {
     case FETCH_GAMES:
       axios
@@ -49,7 +50,8 @@ const gamesListMiddleware = (store) => (next) => (action) => {
           'https://backend.baptisteduray-server.eddi.cloud/api/favoris/add',
 
           {
-            id: action.value,
+            id: action.payload.id,
+            name: action.payload.name,
           }
         )
 

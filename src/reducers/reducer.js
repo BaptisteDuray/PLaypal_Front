@@ -9,6 +9,7 @@ import {
   ADD_ITEM_TO_LOC,
   SAVE_GAMES,
   SAVE_FAVORITE_GAMES,
+  SELECT_GAME,
 } from '../actions/search';
 
 const initialState = {
@@ -33,10 +34,17 @@ const initialState = {
   itemsLoc: [],
   isGamesLoaded: false,
   username: '',
+  selectedGame: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
+  console.log('PATATE', action);
   switch (action.type) {
+    case SELECT_GAME:
+      return {
+        ...state,
+        selectedGame: action.game,
+      };
     case SAVE_GAMES:
       return {
         ...state,

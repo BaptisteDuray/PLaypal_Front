@@ -5,9 +5,9 @@ import PropTypes from 'prop-types';
 import iconFav from '../../assets/icon/fav2.png';
 // image afficher par defaut si pas d'image
 import defaultImage from '../../assets/icon/pawn-icon.png';
-import { addItemToFav } from '../../actions/search';
+import { addItemToFav, selectGame } from '../../actions/search';
 
-const Game = ({ name, description, category, price, status, image }) => {
+const Game = ({ name, description, category, price, status, image, id }) => {
   const itemsFavValue = useSelector((state) => state.itemsFav);
 
   const dispatch = useDispatch();
@@ -27,7 +27,23 @@ const Game = ({ name, description, category, price, status, image }) => {
         <img src={image} alt="la boite du jeu" />
 
         <Link className="CardGameLink" to={`/liste-de-jeux/${name}`}>
-          <button className="btn-view-game" type="button">
+          <button
+            className="btn-view-game"
+            type="button"
+            onClick={() =>
+              dispatch(
+                selectGame({
+                  name,
+                  description,
+                  category,
+                  price,
+                  status,
+                  image,
+                  id,
+                })
+              )
+            }
+          >
             voir le jeu
           </button>
         </Link>

@@ -15,6 +15,7 @@ const FavoritePage = () => {
       {favoriteGames.map((game) => (
         <Game
           key={game.id}
+          id={game.id}
           name={game.name}
           description={game.description}
           category={game.name}
