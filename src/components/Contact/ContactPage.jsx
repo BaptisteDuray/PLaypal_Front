@@ -44,14 +44,14 @@ const ContactPage = () => {
           <Field
             identifier="firstname"
             placeholder="John"
-            label="Prénom"
+            label="Prénom*"
             changeField={handleFieldChange}
             value={firstnameValue}
           />
           <Field
             identifier="name"
             placeholder="DOE"
-            label="NOM"
+            label="NOM*"
             changeField={handleFieldChange}
             type="text"
             value={nameValue}
@@ -59,7 +59,7 @@ const ContactPage = () => {
           <Field
             identifier="company"
             placeholder="Playpal"
-            label="Société"
+            label="Société*"
             changeField={handleFieldChange}
             type="text"
             value={companyValue}
@@ -67,7 +67,7 @@ const ContactPage = () => {
           <Field
             identifier="emailContact"
             placeholder="cluedo@playpal.fr"
-            label="Mail"
+            label="Mail*"
             changeField={handleFieldChange}
             type="text"
             value={emailValue}
@@ -83,11 +83,13 @@ const ContactPage = () => {
           <Field
             identifier="message"
             placeholder="..."
-            label="Message"
+            label="Message*"
             changeField={handleFieldChange}
             type="text"
             value={messageValue}
           />
+
+          <p className="legend">*champs obligatoires</p>
           <button type="submit" className="settings-submit">
             Envoyer
           </button>
