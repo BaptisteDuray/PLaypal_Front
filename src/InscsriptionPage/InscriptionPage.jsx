@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-
+import { useState } from 'react';
 import {
   changeSettingsInscription,
   submitInscription,
@@ -21,6 +21,10 @@ const InscriptionPage = () => {
 
   const dispatch = useDispatch();
 
+  // AFFICHAGE MESSAGE (avec useState) Ajout d'une variable d'état pour suivre l'état de la soumission du formulaire
+  const [formSubmitted, setFormSubmitted] = useState(false); // validé
+  const [formError, setFormError] = useState(false); // invalidé
+
   const handleFieldChange = (identifier, newValue) => {
     dispatch(changeSettingsInscription(newValue, identifier));
   };
@@ -28,7 +32,25 @@ const InscriptionPage = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    // AFFICHAGE MESSAGE Vérifier si tous les champs obligatoires sont remplis
+    // TODO faire un new message erreur si email deja utilisé (email invalide)
+    if (
+      !firstnameInscriptionValue ||
+      !nameInscriptionValue ||
+      !emailInscriptionValue ||
+      !passwordInscriptionValue
+    ) {
+      setFormError(true);
+      return;
+    }
+
+    // Supprimer les message précédent
+    setFormSubmitted(false);
+    setFormError(false);
+
     dispatch(submitInscription());
+    // AFFICHAGE MESSAGE Définir formSubmitted sur true après une soumission réussie
+    setFormSubmitted(true);
   };
 
   return (
@@ -87,9 +109,19 @@ const InscriptionPage = () => {
             Envoyer
           </button>
 
-          <div className="validation-inscription">
-            <p>Inscription validée !</p>
-          </div>
+          {formSubmitted && (
+            <div className="validation-send-message">
+              <p>Inscription validée !</p>
+            </div>
+          )}
+          {formError && (
+            <div className="error-message">
+              <p>
+                Veuillez remplir tous les champs obligatoires pour valider votre
+                inscription.
+              </p>
+            </div>
+          )}
         </form>
       </div>
     </div>
