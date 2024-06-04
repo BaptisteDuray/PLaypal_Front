@@ -94,7 +94,11 @@ const ContactPage = () => {
           />
 
           <p className="legend">*champs obligatoires</p>
-          <button type="submit" className="settings-submit">
+          <button
+            type="submit"
+            className="settings-submit"
+            onClick={handleSubmit}
+          >
             Envoyer
           </button>
 
