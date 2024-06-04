@@ -94,7 +94,17 @@ const ContactPage = () => {
           />
 
           <p className="legend">*champs obligatoires</p>
-          <button type="submit" className="settings-submit">
+          <button
+            type="submit"
+            className="settings-submit"
+            onClick={(event) => {
+              event.preventDefault();
+              console.log('le message est envoyer');
+              /* on envoie une action, qui déclenchera une requete en passant par
+authMiddleware */
+              dispatch(submitContact());
+            }}
+          >
             Envoyer
           </button>
 

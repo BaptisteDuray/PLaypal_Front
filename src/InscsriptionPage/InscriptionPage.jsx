@@ -14,9 +14,7 @@ const InscriptionPage = () => {
   );
   const nameInscriptionValue = useSelector((state) => state.nameInscription);
   const emailInscriptionValue = useSelector((state) => state.emailInscription);
-  const messageInscriptionValue = useSelector(
-    (state) => state.messageInscription
-  );
+  const pwdInscriptionValue = useSelector((state) => state.pwdInscription);
 
   const attachmentValue = useSelector((state) => state.attachment);
 
@@ -70,6 +68,18 @@ const InscriptionPage = () => {
           />
 
           <Field
+            identifier="pwdInscription"
+            placeholder="mot de passe"
+            label="Mot de passe"
+            changeField={(identifier, newValue) => {
+              const action = changeSettingsInscription(newValue, identifier);
+              dispatch(action);
+            }}
+            type="text"
+            value={pwdInscriptionValue}
+          />
+
+          <Field
             identifier="attachment"
             placeholder="..."
             label="Image"
@@ -86,9 +96,11 @@ const InscriptionPage = () => {
             className="settings-submit"
             onClick={(event) => {
               event.preventDefault();
+              console.log('inscription ok');
               // console.log('submit');
               /* on envoie une action, qui déclenchera une requete en passant par
   authMiddleware */
+              // TODO
               dispatch(submitInscription());
             }}
           >
