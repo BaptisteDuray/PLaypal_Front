@@ -97,13 +97,7 @@ const ContactPage = () => {
           <button
             type="submit"
             className="settings-submit"
-            onClick={(event) => {
-              event.preventDefault();
-              console.log('le message est envoyer');
-              /* on envoie une action, qui déclenchera une requete en passant par
-authMiddleware */
-              dispatch(submitContact());
-            }}
+            onClick={handleSubmit}
           >
             Envoyer
           </button>

@@ -96,7 +96,7 @@ const InscriptionPage = () => {
             className="settings-submit"
             onClick={(event) => {
               event.preventDefault();
-              console.log('inscription ok');
+              console.log('inscription');
               // console.log('submit');
               /* on envoie une action, qui déclenchera une requete en passant par
   authMiddleware */
