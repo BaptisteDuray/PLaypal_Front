@@ -9,10 +9,10 @@ const inscriptionMiddleware = (store) => (next) => (action) => {
           'https://backend.baptisteduray-server.eddi.cloud/api/register/',
 
           {
-            Firstname: store.getState().firstname,
-            Lastname: store.getState().Lastname,
-            email: store.getState().email,
-            password: store.getState().password,
+            Firstname: store.getState().firstnameInscription,
+            Lastname: store.getState().nameInscription,
+            email: store.getState().emailInscription,
+            password: store.getState().passwordInscription,
             icon: store.getState().icon,
           }
         )

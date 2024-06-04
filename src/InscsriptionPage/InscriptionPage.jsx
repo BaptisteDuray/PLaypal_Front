@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-
+import { useState } from 'react';
 import {
   changeSettingsInscription,
   submitInscription,
@@ -14,10 +14,16 @@ const InscriptionPage = () => {
   );
   const nameInscriptionValue = useSelector((state) => state.nameInscription);
   const emailInscriptionValue = useSelector((state) => state.emailInscription);
-  const pwdInscriptionValue = useSelector((state) => state.pwdInscription);
+  const passwordInscriptionValue = useSelector(
+    (state) => state.passwordInscription
+  );
   const attachmentValue = useSelector((state) => state.attachment);
 
   const dispatch = useDispatch();
+
+  // AFFICHAGE MESSAGE (avec useState) Ajout d'une variable d'état pour suivre l'état de la soumission du formulaire
+  const [formSubmitted, setFormSubmitted] = useState(false); // validé
+  const [formError, setFormError] = useState(false); // invalidé
 
   const handleFieldChange = (identifier, newValue) => {
     dispatch(changeSettingsInscription(newValue, identifier));
@@ -26,40 +32,43 @@ const InscriptionPage = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    // AFFICHAGE MESSAGE Vérifier si tous les champs obligatoires sont remplis
+    // TODO faire un new message erreur si email deja utilisé (email invalide)
+    if (
+      !firstnameInscriptionValue ||
+      !nameInscriptionValue ||
+      !emailInscriptionValue ||
+      !passwordInscriptionValue
+    ) {
+      setFormError(true);
+      return;
+    }
+
+    // Supprimer les message précédent
+    setFormSubmitted(false);
+    setFormError(false);
+
     dispatch(submitInscription());
+    // AFFICHAGE MESSAGE Définir formSubmitted sur true après une soumission réussie
+    setFormSubmitted(true);
   };
 
   return (
     <div className="Contact">
       <div className="settings">
-        <form
-          className="settings-form"
-          onSubmit={(event) => {
-            event.preventDefault();
-            // console.log('submit');
-            /* on envoie une action, qui déclenchera une requete en passant par
-        authMiddleware */
-            dispatch(submitInscription());
-          }}
-        >
+        <form>
           <Field
             identifier="firstnameInscription"
             placeholder="John"
-            label="Prénom"
-            changeField={(identifier, newValue) => {
-              const action = changeSettingsInscription(newValue, identifier);
-              dispatch(action);
-            }}
+            label="*Prénom"
+            changeField={handleFieldChange}
             value={firstnameInscriptionValue}
           />
           <Field
             identifier="nameInscription"
             placeholder="DOE"
-            label="Nom"
-            changeField={(identifier, newValue) => {
-              const action = changeSettingsInscription(newValue, identifier);
-              dispatch(action);
-            }}
+            label="*Nom"
+            changeField={handleFieldChange}
             type="text"
             value={nameInscriptionValue}
           />
@@ -67,58 +76,52 @@ const InscriptionPage = () => {
           <Field
             identifier="emailInscription"
             placeholder="cluedo@playpal.fr"
-            label="Mail"
-            changeField={(identifier, newValue) => {
-              const action = changeSettingsInscription(newValue, identifier);
-              dispatch(action);
-            }}
+            label="*Mail"
+            changeField={handleFieldChange}
             type="text"
             value={emailInscriptionValue}
           />
 
           <Field
-            identifier="pwdInscription"
+            identifier="passwordInscription"
             placeholder="Créer un mot de passe"
-            label="Mot de passe"
-            changeField={(identifier, newValue) => {
-              const action = changeSettingsInscription(newValue, identifier);
-              dispatch(action);
-            }}
+            label="*Mot de passe"
+            changeField={handleFieldChange}
             type="password"
-            value={pwdInscriptionValue}
+            value={passwordInscriptionValue}
           />
 
           <Field
             identifier="attachment"
             placeholder="..."
             label="Image"
-            changeField={(identifier, newValue) => {
-              const action = changeSettingsInscription(newValue, identifier);
-              dispatch(action);
-            }}
+            changeField={handleFieldChange}
             type="file"
             value={attachmentValue}
           />
 
+          <p className="legend">*champs obligatoires</p>
           <button
             type="submit"
             className="settings-submit"
-            onClick={(event) => {
-              event.preventDefault();
-              console.log('inscription');
-              // console.log('submit');
-              /* on envoie une action, qui déclenchera une requete en passant par
-  authMiddleware */
-              // TODO
-              dispatch(submitInscription());
-            }}
+            onClick={handleSubmit}
           >
             Envoyer
           </button>
 
-          <div className="validation-inscription">
-            <p>Inscription validée !</p>
-          </div>
+          {formSubmitted && (
+            <div className="validation-send-message">
+              <p>Inscription validée !</p>
+            </div>
+          )}
+          {formError && (
+            <div className="error-message">
+              <p>
+                Veuillez remplir tous les champs obligatoires pour valider votre
+                inscription.
+              </p>
+            </div>
+          )}
         </form>
       </div>
     </div>
