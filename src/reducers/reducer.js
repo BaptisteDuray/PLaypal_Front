@@ -143,10 +143,10 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         logged: false,
       };
-    case ADD_ITEM_TO_FAV:
+    case ADD_ITEM_TO_LOC:
       return {
         ...state,
-        payload,
+        itemsLoc: action.game,
       };
     case SAVE_FAVORITE_GAMES:
       return {

@@ -99,6 +99,7 @@ export const addItemToFav = (value) => {
 export const fetchRentGames = () => ({
   type: FETCH_RENT_GAMES,
 });
+
 export const saveRentGames = (games) => ({
   type: SAVE_RENT_GAMES,
   games,

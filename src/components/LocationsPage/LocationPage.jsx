@@ -6,23 +6,36 @@ import { Link } from 'react-router-dom';
 import './LocationPage.scss';
 
 const LocationPage = () => {
-  const rentGames = useSelector((state) => state.itemsLoc);
+  const itemsLoc = useSelector((state) => state.itemsLoc);
 
   return (
     <div className="gamesList">
       <h1 className="title">Mes Locations</h1>
 
-      {rentGames.map((game) => (
-        <Game
-          key={game.id}
-          id={game.id}
-          name={game.name}
-          description={game.description}
-          category={game.name}
-          price={game.price}
-          status={game.status}
-          image={game.image}
-        />
+      {itemsLoc.map((location) => (
+        <div key={location.id}>
+          <p>
+            Date de début: {new Date(location.date_debut).toLocaleDateString()}
+          </p>
+          <p>Date de fin: {new Date(location.date_fin).toLocaleDateString()}</p>
+
+          <div className="rented-games">
+            {location.contentRents.map((rentedGame) => (
+              <Game
+                key={rentedGame.game.Name}
+                id={rentedGame.game.id}
+                name={rentedGame.game.Name}
+                description={rentedGame.game.Description}
+                category={rentedGame.game.category}
+                price={rentedGame.game.Price}
+                status={location.Status}
+                image={rentedGame.game.image}
+                // date_debut={location.date_debut}
+                // date_fin={location.date_fin}
+              />
+            ))}
+          </div>
+        </div>
       ))}
     </div>
   );

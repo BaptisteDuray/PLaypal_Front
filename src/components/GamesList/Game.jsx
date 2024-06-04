@@ -8,8 +8,6 @@ import defaultImage from '../../assets/icon/pawn-icon.png';
 import { addItemToFav, selectGame } from '../../actions/search';
 
 const Game = ({ name, description, category, price, status, image, id }) => {
-  const itemsFavValue = useSelector((state) => state.itemsFav);
-
   const dispatch = useDispatch();
 
   const handleFav = (event) => {
@@ -40,6 +38,8 @@ const Game = ({ name, description, category, price, status, image, id }) => {
                   status,
                   image,
                   id,
+                  // date_debut,
+                  // date_fin,
                 })
               )
             }
@@ -52,7 +52,11 @@ const Game = ({ name, description, category, price, status, image, id }) => {
       <div className="informations">
         <h3>{name}</h3>
         <p>{description}</p>
-        <p className="tags-games-list">{category.name}</p>
+        <p className="tags-games-list">
+          {category && typeof category === 'object' && category.name
+            ? category.name
+            : 'Catégorie non définie'}
+        </p>
         <strong className="price-games-list">à partir de {price}</strong>
       </div>
 
@@ -68,12 +72,16 @@ const Game = ({ name, description, category, price, status, image, id }) => {
 
 // TODO verification des proptypes
 
-Game.propTypes = {
-  name: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  category: PropTypes.string.isRequired,
-  price: PropTypes.string.isRequired,
-  status: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
-};
+// Game.propTypes = {
+//   name: PropTypes.string.isRequired,
+//   description: PropTypes.string.isRequired,
+//   category: PropTypes.shape({
+//     name: PropTypes.string.isRequired,
+//     // Ajoutez d'autres propriétés de l'objet category ici
+//   }).isRequired,
+//   price: PropTypes.string.isRequired,
+//   status: PropTypes.string.isRequired,
+//   image: PropTypes.string.isRequired,
+// };
+
 export default Game;
