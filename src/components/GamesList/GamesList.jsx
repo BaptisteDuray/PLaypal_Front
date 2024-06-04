@@ -27,7 +27,7 @@ const GamesList = () => {
             category={game.category}
             price={game.Price}
             status={game.Status}
-            image={game.image}
+            image={game.Image}
           />
         ))}
       </div>

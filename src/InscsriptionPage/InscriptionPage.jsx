@@ -15,10 +15,19 @@ const InscriptionPage = () => {
   const nameInscriptionValue = useSelector((state) => state.nameInscription);
   const emailInscriptionValue = useSelector((state) => state.emailInscription);
   const pwdInscriptionValue = useSelector((state) => state.pwdInscription);
-
   const attachmentValue = useSelector((state) => state.attachment);
 
   const dispatch = useDispatch();
+
+  const handleFieldChange = (identifier, newValue) => {
+    dispatch(changeSettingsInscription(newValue, identifier));
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    dispatch(submitInscription());
+  };
 
   return (
     <div className="Contact">
@@ -46,7 +55,7 @@ const InscriptionPage = () => {
           <Field
             identifier="nameInscription"
             placeholder="DOE"
-            label="NOM"
+            label="Nom"
             changeField={(identifier, newValue) => {
               const action = changeSettingsInscription(newValue, identifier);
               dispatch(action);
@@ -69,13 +78,13 @@ const InscriptionPage = () => {
 
           <Field
             identifier="pwdInscription"
-            placeholder="mot de passe"
+            placeholder="Créer un mot de passe"
             label="Mot de passe"
             changeField={(identifier, newValue) => {
               const action = changeSettingsInscription(newValue, identifier);
               dispatch(action);
             }}
-            type="text"
+            type="password"
             value={pwdInscriptionValue}
           />
 
