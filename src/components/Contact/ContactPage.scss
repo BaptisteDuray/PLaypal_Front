@@ -1,39 +1,25 @@
 @import '/src/styles/variables';
 
-.contact-form {
-  background: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-.contact-form h2 {
-  margin-bottom: 15px;
-}
-.contact-form label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-}
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-.contact-form button {
-  background: #0f1231;
-  color: #fff;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
+.Contact {
+  .legend {
+    font-family: 'Akshar', sans-serif;
 
-.validation-send-message {
-  font-family: 'Akshar', sans-serif;
-  background-color: #46bc46;
-  padding: 1.5rem;
-  border-radius: 10px;
+    font-size: small;
+  }
+  .validation-send-message {
+    font-family: 'Akshar', sans-serif;
+    background-color: #46bc46;
+    padding: 1.5rem;
+    border-radius: 10px;
+    max-width: 25rem;
+  }
+
+  .error-message {
+    font-family: 'Akshar', sans-serif;
+    background-color: $secondary-color;
+    padding: 1.5rem;
+    border-radius: 10px;
+    color: #fff;
+    max-width: 25rem;
+  }
 }
