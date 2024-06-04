@@ -1,15 +1,34 @@
 import './SearchBar.scss';
+import PropTypes from 'prop-types';
 
 import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 
 import { Input, Form, FormField, Segment } from 'semantic-ui-react';
 
-import { changeInputMessage, submitSearch } from '../../actions/search';
+import {
+  changeInputMessage,
+  submitSearch,
+  fetchGames,
+} from '../../actions/search';
 
-const SearchBar = () => {
-  const value = useSelector((state) => state.inputMessage);
+const SearchBar = ({ games }) => {
+  const searchValue = useSelector((state) => state.inputMessage);
 
   const dispatch = useDispatch();
+
+  // TODO
+  // Récupérer les produits depuis l'API au montage du composant
+  useEffect(() => {
+    dispatch(fetchGames());
+  }, [dispatch]);
+
+  // Filtrer les produits en fonction du terme de recherche
+  const filteredGames = games.filter((game) =>
+    // tolowercase converti la string en minuscule
+    game.name.toLowerCase().includes(searchValue.toLowerCase())
+  );
+
   return (
     <div className="SectionSearch">
       <h1>Louez-les tous !</h1>
@@ -18,7 +37,7 @@ const SearchBar = () => {
           <Form
             onSubmit={(event) => {
               event.preventDefault();
-              console.log('submit');
+              console.log('recherche envoyée');
 
               dispatch(submitSearch());
             }}
@@ -28,19 +47,8 @@ const SearchBar = () => {
                 icon="search"
                 iconPosition="right"
                 placeholder="Rechercher un jeu"
-                value={value}
+                value={searchValue}
                 onChange={(event) => {
-                  // enregistrer event.target.value dans le champ inputMessage du state
-                  // => pour modifier le state dans un store redux, il faut dispatch une
-                  // action
-                  //
-                  // 3 étapes :
-                  // - ajouter l'action dans l'annuaire
-                  // - écrire le traitement de cette action dans le reducer
-                  // - utiliser useDispatch dans le composant concerné
-                  // Note : si on réutilise une action déjà existante, il y a juste la
-                  // 3e étape
-
                   const action = changeInputMessage(event.target.value);
                   dispatch(action);
                 }}
@@ -49,8 +57,24 @@ const SearchBar = () => {
           </Form>
         </Segment>
       </div>
+      {/* TEST Afficher la liste filtrée de produits */}
+      <ul>
+        {filteredGames.map((game) => (
+          <li key={game.id}>{game.name}</li>
+        ))}
+      </ul>
     </div>
   );
+};
+
+SearchBar.propTypes = {
+  // eslint-disable-next-line react/require-default-props
+  games: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+    })
+  ),
 };
 
 export default SearchBar;

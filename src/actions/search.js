@@ -60,9 +60,12 @@ export const changeSettingsInscription = (newValue, identifier) => ({
 export const submitLogin = () => ({
   type: SUBMIT_LOGIN,
 });
+
+// action soumission barre de recherche home page
 export const submitSearch = () => ({
   type: SUBMIT_SEARCH,
 });
+
 export const submitInscription = () => ({
   type: SUBMIT_INSCRIPTION,
 });

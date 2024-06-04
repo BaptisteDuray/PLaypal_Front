@@ -17,10 +17,6 @@ const Game = ({ name, description, category, price, status, image, id }) => {
     dispatch(addItemToFav);
   };
 
-  // test pour la dynamisation de game
-
-  // TODO 3. dynamiser les info grace au donnée de gamesData
-
   return (
     <div className="cardList">
       <div className="game-image">
@@ -66,7 +62,7 @@ const Game = ({ name, description, category, price, status, image, id }) => {
   );
 };
 
-// TODO verification des proptypes
+// verification des proptypes
 
 Game.propTypes = {
   name: PropTypes.string.isRequired,

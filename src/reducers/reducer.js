@@ -10,6 +10,7 @@ import {
   SAVE_GAMES,
   SAVE_FAVORITE_GAMES,
   SELECT_GAME,
+  SUBMIT_SEARCH,
 } from '../actions/search';
 
 const initialState = {
@@ -39,8 +40,14 @@ const initialState = {
 };
 
 const reducer = (state = initialState, action = {}) => {
-  console.log('PATATE', action);
+  // console.log('PATATE', action);
   switch (action.type) {
+    // action soummission de recherche home page
+    case SUBMIT_SEARCH:
+      return {
+        ...state,
+        search: action.game,
+      };
     case SELECT_GAME:
       return {
         ...state,

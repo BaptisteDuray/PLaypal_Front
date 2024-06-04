@@ -14,6 +14,8 @@ const GamesList = () => {
     dispatch(fetchGames());
   }, [dispatch]);
 
+  console.log({ gamesList });
+
   return (
     <div className="game-list-desktop">
       <div className="gamesList">
@@ -27,7 +29,7 @@ const GamesList = () => {
             category={game.category}
             price={game.Price}
             status={game.Status}
-            image={game.Image}
+            image={game.image}
           />
         ))}
       </div>
