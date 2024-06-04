@@ -1,16 +1,18 @@
 import axios from 'axios';
 
 import {
+  FETCH_RENT_GAMES,
   FETCH_FAVORITE_GAMES,
   FETCH_GAMES,
   saveGames,
   saveFavoriteGames,
+  saveRentGames,
   ADD_ITEM_TO_FAV,
   addItemToFav,
 } from '../actions/search';
 
 const gamesListMiddleware = (store) => (next) => (action) => {
-  console.log(action);
+  // console.log(action);
   switch (action.type) {
     case FETCH_GAMES:
       axios
@@ -67,6 +69,26 @@ const gamesListMiddleware = (store) => (next) => (action) => {
         });
 
       break;
+    case FETCH_RENT_GAMES:
+      axios
+        .get(
+          'https://backend.baptisteduray-server.eddi.cloud/api/louer/',
+
+          {
+            headers: {
+              Authorization: `Bearer ${store.getState().token}`,
+            },
+          }
+        )
+        .then((response) => {
+          console.log('FETCH RENT GAMES', response.data);
+          store.dispatch(saveRentGames(response.data));
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      break;
+
     default:
       break;
   }
