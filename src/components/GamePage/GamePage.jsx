@@ -32,7 +32,7 @@ const Game = () => {
         <div className="available-tag">{gameData.status}</div>
 
         <div className="game-image">
-          <img src={gameData.image} alt="la boite du jeu" />
+          <img src={defaultImage} alt="la boite du jeu" />
         </div>
       </div>
 

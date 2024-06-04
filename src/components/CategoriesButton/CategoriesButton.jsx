@@ -1,6 +1,6 @@
 import Button from './Button';
 import './CategoriesButton.scss';
-
+// TODO map les nom des categories pour la home
 const CategoriesButton = () => {
   return (
     <div className="CategoriesButton">
