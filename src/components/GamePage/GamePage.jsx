@@ -9,7 +9,11 @@ import './GamePage.scss';
 import { useParams } from 'react-router';
 import defaultImage from '../../assets/image/126163.jpg';
 import iconFav from '../../assets/icon/fav2.png';
-import { addItemToFav, addItemToLoc } from '../../actions/search';
+import {
+  addItemToFav,
+  addItemToLoc,
+  deleteFromFav,
+} from '../../actions/search';
 
 const Game = () => {
   // trouver le jeux grace a son url (on utilise des parametre)
@@ -94,6 +98,7 @@ authMiddleware */
               /* on envoie une action, qui déclenchera une requete en passant par
 authMiddleware (ne pas tenir compte de ce que j'ai ecrit)*/
               dispatch(addItemToFav(gameData));
+              console.log('BANANE', addItemToFav(gameData));
             }}
           >
             <img src={iconFav} alt="ajouter à mes favoris" />

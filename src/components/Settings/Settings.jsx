@@ -20,7 +20,7 @@ const Settings = () => {
 
   const dispatch = useDispatch();
 
-  const vider = () => {
+  const clear = () => {
     dispatch(changeSettingsField('', 'email'));
     dispatch(changeSettingsField('', 'password'));
   };
@@ -35,7 +35,7 @@ const Settings = () => {
 
     if (!isLoginValid) {
       setLoginError(true);
-      vider();
+      clear();
     }
   };
 

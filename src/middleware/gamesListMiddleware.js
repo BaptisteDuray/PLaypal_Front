@@ -13,6 +13,7 @@ import {
   addItemToLoc,
   ADD_ITEM_TO_LOC,
   fetchFavoriteGames,
+  DELETE_FROM_FAV,
 } from '../actions/search';
 
 const gamesListMiddleware = (store) => (next) => (action) => {
@@ -75,10 +76,10 @@ const gamesListMiddleware = (store) => (next) => (action) => {
 
       break;
     case 'DELETE_FROM_FAV':
+      const { id } = action.payload;
       axios
         .delete(
-          `https://backend.baptisteduray-server.eddi.cloud/api/favoris/delete`,
-          { game: action.payload.id },
+          `https://backend.baptisteduray-server.eddi.cloud/api/favoris/${id}`,
           {
             headers: {
               Authorization: `Bearer ${store.getState().token}`,
@@ -87,7 +88,6 @@ const gamesListMiddleware = (store) => (next) => (action) => {
         )
         .then((response) => {
           console.log('Élément supprimé des favoris', response.data);
-
           store.dispatch(fetchFavoriteGames(response.data));
         })
         .catch((error) => {
