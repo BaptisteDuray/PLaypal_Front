@@ -74,6 +74,27 @@ const gamesListMiddleware = (store) => (next) => (action) => {
         });
 
       break;
+    case 'DELETE_FROM_FAV':
+      axios
+        .delete(
+          `https://backend.baptisteduray-server.eddi.cloud/api/favoris/delete`,
+          { game: action.payload.id },
+          {
+            headers: {
+              Authorization: `Bearer ${store.getState().token}`,
+            },
+          }
+        )
+        .then((response) => {
+          console.log('Élément supprimé des favoris', response.data);
+
+          store.dispatch(fetchFavoriteGames(response.data));
+        })
+        .catch((error) => {
+          console.error('Erreur lors de la suppression des favoris', error);
+        });
+      break;
+
     case FETCH_RENT_GAMES:
       axios
         .get(

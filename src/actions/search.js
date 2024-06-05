@@ -20,6 +20,8 @@ export const SAVE_RENT_GAMES = 'SAVE_RENT_GAMES';
 
 // ajout d'une action pour ajouter en favoris
 export const ADD_ITEM_TO_FAV = 'ADD_ITEM_TO_FAV';
+
+export const DELETE_FROM_FAV = 'DELETE_FROM_FAV';
 // ajout d'une action pour ajouter en location
 export const ADD_ITEM_TO_LOC = 'ADD_ITEM_TO_LOC';
 
@@ -107,5 +109,10 @@ export const saveRentGames = (games) => ({
 
 export const addItemToLoc = (value) => ({
   type: ADD_ITEM_TO_LOC,
+  payload: value,
+});
+
+export const deleteFromFav = (value) => ({
+  type: DELETE_FROM_FAV,
   payload: value,
 });

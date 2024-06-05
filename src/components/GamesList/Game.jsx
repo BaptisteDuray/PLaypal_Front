@@ -8,6 +8,8 @@ import defaultImage from '../../assets/image/126163.jpg';
 import { addItemToFav, selectGame } from '../../actions/search';
 
 const Game = ({ name, description, category, price, status, image, id }) => {
+  const favorites = useSelector((state) => state.itemsFav);
+
   const dispatch = useDispatch();
 
   const handleFav = (event) => {

@@ -11,6 +11,7 @@ import {
   SAVE_FAVORITE_GAMES,
   SAVE_RENT_GAMES,
   SELECT_GAME,
+  DELETE_FROM_FAV,
 } from '../actions/search';
 
 const initialState = {
@@ -133,6 +134,11 @@ const reducer = (state = initialState, action = {}) => {
         messageInscription: action.value,
       };
     case ADD_ITEM_TO_FAV:
+      return {
+        ...state,
+        itemsFav: action.game,
+      };
+    case DELETE_FROM_FAV:
       return {
         ...state,
         itemsFav: action.game,
