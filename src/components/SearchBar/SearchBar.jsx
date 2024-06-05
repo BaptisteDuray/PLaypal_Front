@@ -29,7 +29,6 @@ const SearchBar = ({ games }) => {
     );
   };
 
-  // RENDU
   return (
     <div className="SectionSearch">
       <h1>Louez-les tous !</h1>

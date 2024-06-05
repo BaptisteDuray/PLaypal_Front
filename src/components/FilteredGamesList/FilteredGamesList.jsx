@@ -5,12 +5,12 @@ import Game from '../GamesList/Game';
 import backgroundImage from '../../assets/image/background-img.jpg';
 
 const FilteredGamesList = () => {
-  const location = useLocation();
-  const searchParams = new URLSearchParams(location.search);
-  const filteredGamesData = searchParams.get('data');
+  const location = useLocation(); // recupérer l'emplacement actuel
+  const searchParams = new URLSearchParams(location.search); // Récupérer les paramètres de recherche
+  const filteredGamesData = searchParams.get('data'); // Récupérer les données des jeux filtrés
   const filteredGames = filteredGamesData
     ? JSON.parse(decodeURIComponent(filteredGamesData))
-    : [];
+    : []; // Décoder les données des jeux filtrés
 
   return (
     <div className="game-list-desktop">
