@@ -9,9 +9,8 @@ import { fetchGames } from '../../actions/search';
 import { useEffect, useState } from 'react';
 
 const Home = () => {
-  // LIST TEST DE JEU
-
-  const games = useSelector((state) => state.list); // ma liste de jeux dans un ntableau
+  // on recupere liste jeu de l'api
+  const games = useSelector((state) => state.list);
 
   return (
     <>

@@ -1,21 +1,15 @@
 import './SearchBar.scss';
 import PropTypes from 'prop-types';
-import { useSelector, useDispatch } from 'react-redux';
-import { useEffect, useState } from 'react';
-import { Input, Form, FormField, Segment } from 'semantic-ui-react';
+import { useState } from 'react';
+import { Input, Form } from 'semantic-ui-react';
 import { useNavigate } from 'react-router';
-import {
-  changeInputMessage,
-  submitSearch,
-  fetchGames,
-} from '../../actions/search';
 
 const SearchBar = ({ games }) => {
   const [searchValue, setSearchValue] = useState('');
-  const dispatch = useDispatch();
   const [filteredGames, setFilteredGames] = useState([]);
 
   const navigate = useNavigate();
+  console.log(filteredGames); // voir la liste filtrée
 
   return (
     <div className="SectionSearch">
@@ -25,7 +19,7 @@ const SearchBar = ({ games }) => {
           onSubmit={(event) => {
             event.preventDefault();
             // TODO mettre le bon nom de la page
-            navigate('/nomDeLaPage', { filteredGames });
+            navigate('/recherche-de-jeux', { filteredGames });
           }}
         >
           <Input
