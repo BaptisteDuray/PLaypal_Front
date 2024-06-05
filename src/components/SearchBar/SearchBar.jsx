@@ -1,11 +1,9 @@
 import './SearchBar.scss';
 import PropTypes from 'prop-types';
-
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react';
-
+import { useEffect, useState } from 'react';
 import { Input, Form, FormField, Segment } from 'semantic-ui-react';
-
+import { useNavigate } from 'react-router';
 import {
   changeInputMessage,
   submitSearch,
@@ -13,51 +11,41 @@ import {
 } from '../../actions/search';
 
 const SearchBar = ({ games }) => {
-  const searchValue = useSelector((state) => state.inputMessage);
-
+  const [searchValue, setSearchValue] = useState('');
   const dispatch = useDispatch();
+  const [filteredGames, setFilteredGames] = useState([]);
 
-  // TODO
-  // Récupérer les produits depuis l'API au montage du composant
-  useEffect(() => {
-    dispatch(fetchGames());
-  }, [dispatch]);
-
-  // Filtrer les produits en fonction du terme de recherche
-  const filteredGames = games.filter((game) =>
-    // tolowercase converti la string en minuscule
-    game.name.toLowerCase().includes(searchValue.toLowerCase())
-  );
+  const navigate = useNavigate();
 
   return (
     <div className="SectionSearch">
       <h1>Louez-les tous !</h1>
       <div className="SearchBar">
-        <Segment>
-          <Form
-            onSubmit={(event) => {
-              event.preventDefault();
-              console.log('recherche envoyée');
-
-              dispatch(submitSearch());
+        <Form
+          onSubmit={(event) => {
+            event.preventDefault();
+            // TODO mettre le bon nom de la page
+            navigate('/nomDeLaPage', { filteredGames });
+          }}
+        >
+          <Input
+            icon="search"
+            iconPosition="right"
+            placeholder="Rechercher un jeu"
+            value={searchValue}
+            onChange={(event) => {
+              setSearchValue(event.target.value);
+              const filteredGame = games.filter((game) =>
+                game.Name.toLowerCase().includes(
+                  event.target.value.toLowerCase()
+                )
+              );
+              setFilteredGames(filteredGame);
             }}
-          >
-            <FormField>
-              <Input
-                icon="search"
-                iconPosition="right"
-                placeholder="Rechercher un jeu"
-                value={searchValue}
-                onChange={(event) => {
-                  const action = changeInputMessage(event.target.value);
-                  dispatch(action);
-                }}
-              />
-            </FormField>
-          </Form>
-        </Segment>
+          />
+        </Form>
       </div>
-      {/* TEST Afficher la liste filtrée de produits */}
+      {/* TEST ( a mettre sur une autre page list) Afficher la liste filtrée de jeux */}
       <ul>
         {filteredGames.map((game) => (
           <li key={game.id}>{game.name}</li>
@@ -68,13 +56,12 @@ const SearchBar = ({ games }) => {
 };
 
 SearchBar.propTypes = {
-  // eslint-disable-next-line react/require-default-props
   games: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
       name: PropTypes.string.isRequired,
     })
-  ),
+  ).isRequired,
 };
 
 export default SearchBar;

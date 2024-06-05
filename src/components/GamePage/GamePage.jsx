@@ -7,7 +7,7 @@ import { findGame } from '../../Selector/games';
 import './GamePage.scss';
 // eslint-disable-next-line import/order
 import { useParams } from 'react-router';
-import defaultImage from '../../assets/icon/pawn-icon.png';
+import defaultImage from '../../assets/image/126163.jpg';
 import iconFav from '../../assets/icon/fav2.png';
 import { addItemToFav, addItemToLoc } from '../../actions/search';
 
@@ -21,8 +21,14 @@ const Game = () => {
 
   // TODO fav et loc
 
-  const itemsFavValue = useSelector((state) => state.itemsFav);
   const itemsLocValue = useSelector((state) => state.itemsLoc);
+
+  const tonCalculDeDate = () => {
+    const currentDate = new Date();
+    // Ajouter 7 jours à la date actuelle, par exemple
+    const endDate = new Date(currentDate.setDate(currentDate.getDate() + 7));
+    return endDate;
+  };
 
   const dispatch = useDispatch();
   return (
@@ -32,14 +38,16 @@ const Game = () => {
         <div className="available-tag">{gameData.status}</div>
 
         <div className="game-image">
-          <img src={gameData.image} alt="la boite du jeu" />
+          <img src={defaultImage} alt="la boite du jeu" />
         </div>
       </div>
 
       <div className="article-desktop-right">
         <div className="informations">
           <p>{gameData.description}</p>
-          <p className="tags-games-list">{gameData.category.name}</p>
+          <p className="tags-games-list">
+            {gameData.category?.name || 'Catégorie non définie'}
+          </p>
         </div>
 
         <div className="reservation">
@@ -60,7 +68,13 @@ const Game = () => {
               console.log('submit');
               /* on envoie une action, qui déclenchera une requete en passant par
 authMiddleware */
-              dispatch(addItemToLoc(gameData));
+              dispatch(
+                addItemToLoc({
+                  date_debut: new Date(),
+                  gameData,
+                  date_fin: tonCalculDeDate(),
+                })
+              );
             }}
           >
             Louer le jeu

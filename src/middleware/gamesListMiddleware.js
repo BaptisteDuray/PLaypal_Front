@@ -1,16 +1,21 @@
 import axios from 'axios';
 
 import {
+  FETCH_RENT_GAMES,
   FETCH_FAVORITE_GAMES,
   FETCH_GAMES,
   saveGames,
   saveFavoriteGames,
+  saveRentGames,
   ADD_ITEM_TO_FAV,
   addItemToFav,
+  addItemToLoc,
+  ADD_ITEM_TO_LOC,
+  fetchFavoriteGames,
 } from '../actions/search';
 
 const gamesListMiddleware = (store) => (next) => (action) => {
-  console.log(action);
+  // console.log(action);
   switch (action.type) {
     case FETCH_GAMES:
       axios
@@ -45,11 +50,12 @@ const gamesListMiddleware = (store) => (next) => (action) => {
         });
       break;
     case ADD_ITEM_TO_FAV:
+      console.log(action);
       axios
         .post(
           'https://backend.baptisteduray-server.eddi.cloud/api/favoris/add',
 
-          { gameId: action.payload.id },
+          { game: action.payload.id },
           {
             headers: {
               Authorization: `Bearer ${store.getState().token}`,
@@ -59,14 +65,67 @@ const gamesListMiddleware = (store) => (next) => (action) => {
 
         .then((response) => {
           console.log(response);
-          store.dispatch(addItemToFav());
-          store.dispatch(saveFavoriteGames(response.data));
+
+          store.dispatch(fetchFavoriteGames(response.data));
+        })
+        .catch((error) => {
+          throw error;
+        });
+
+      break;
+    case FETCH_RENT_GAMES:
+      axios
+        .get(
+          'https://backend.baptisteduray-server.eddi.cloud/api/louer',
+
+          {
+            headers: {
+              Authorization: `Bearer ${store.getState().token}`,
+            },
+          }
+        )
+        .then((response) => {
+          console.log('FETCH RENT GAMES', response.data);
+          store.dispatch(saveRentGames(response.data));
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      break;
+    case ADD_ITEM_TO_LOC:
+      console.log('RACLETTE', action);
+      axios
+        .post(
+          'https://backend.baptisteduray-server.eddi.cloud/api/louer/add',
+
+          {
+            date_debut: action.payload.date_debut,
+            date_fin: action.payload.date_fin,
+            contentRents: [
+              {
+                game: action.payload.id,
+              },
+            ],
+          },
+
+          {
+            headers: {
+              Authorization: `Bearer ${store.getState().token}`,
+            },
+          }
+        )
+
+        .then((response) => {
+          console.log(response);
+          store.dispatch(addItemToLoc());
+          store.dispatch(saveRentGames(response.data));
         })
         .catch((error) => {
           console.log(error);
         });
 
       break;
+
     default:
       break;
   }

@@ -14,21 +14,21 @@ const NavigationMobile = () => {
         <span>Les jeux</span>
       </Link>
 
-      <a href="*" className="BlocIcon">
+      <Link className="BlocIcon" to="/favoris">
         <img src={fav} alt="favoris" />
         <span>Mes favoris</span>
-      </a>
+      </Link>
 
       <Link className="BlocIcon" to="/">
         <img src={search} alt="loupe recherche" />
-        <span>Recherches</span>
+        <span>Recherche</span>
       </Link>
 
-      <a href="*" className="BlocIcon">
+      <Link className="BlocIcon" to="/locations">
         <img src={loc} alt="agenda" />
         <span>Mes Locations</span>
-      </a>
-      <Link className="BlocIcon" to="/Connexion">
+      </Link>
+      <Link className="BlocIcon" to="/connexion">
         <img src={connect} alt="compte" />
         <span>connexion</span>
       </Link>
