@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import iconFav from '../../assets/icon/fav2.png';
 // image afficher par defaut si pas d'image
-import defaultImage from '../../assets/icon/pawn-icon2.png';
+import defaultImage from '../../assets/image/126163.jpg';
 import { addItemToFav, selectGame } from '../../actions/search';
 
 const Game = ({ name, description, category, price, status, image, id }) => {
