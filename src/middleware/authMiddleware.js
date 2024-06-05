@@ -4,6 +4,7 @@ import {
   SUBMIT_LOGIN,
   handleSuccessfulLogin,
   fetchFavoriteGames,
+  fetchRentGames,
 } from '../actions/search';
 //HANDLE_SUCCESSFUL_LOGIN
 // A middleware for the authentification (here to manage the communication with the server for the authentification)
@@ -32,6 +33,7 @@ const authMiddleware = (store) => (next) => (action) => {
           // console.log(response.data.content_favorite);
 
           store.dispatch(fetchFavoriteGames());
+          store.dispatch(fetchRentGames());
         })
         .catch((error) => {
           console.log(error);

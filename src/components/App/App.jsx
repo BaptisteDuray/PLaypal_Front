@@ -29,7 +29,7 @@ function App() {
 
   useEffect(() => {
     dispatch(fetchGames());
-  }, [dispatch]);
+  }, []);
 
   if (!isGamesLoaded) {
     return <Loading />;

@@ -9,6 +9,7 @@ import {
   ADD_ITEM_TO_LOC,
   SAVE_GAMES,
   SAVE_FAVORITE_GAMES,
+  SAVE_RENT_GAMES,
   SELECT_GAME,
 } from '../actions/search';
 
@@ -39,7 +40,6 @@ const initialState = {
 };
 
 const reducer = (state = initialState, action = {}) => {
-  console.log('PATATE', action);
   switch (action.type) {
     case SELECT_GAME:
       return {
@@ -149,15 +149,20 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         logged: false,
       };
-    case ADD_ITEM_TO_FAV:
+    case ADD_ITEM_TO_LOC:
       return {
         ...state,
-        payload,
+        itemsLoc: action.game,
       };
     case SAVE_FAVORITE_GAMES:
       return {
         ...state,
         itemsFav: action.games,
+      };
+    case SAVE_RENT_GAMES:
+      return {
+        ...state,
+        itemsLoc: action.games,
       };
 
     default:

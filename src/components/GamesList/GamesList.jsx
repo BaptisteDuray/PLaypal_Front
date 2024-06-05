@@ -47,9 +47,9 @@ GamesList.propTypes = {
         PropTypes.shape({
           name: PropTypes.string.isRequired,
         })
-      ).isRequired, // Ajoutez la virgule et marquez la propriété comme requise
+      ).isRequired,
       Price: PropTypes.string.isRequired,
-      Status: PropTypes.string.isRequired, // Ajoutez la virgule ici
+      Status: PropTypes.string.isRequired,
       image: PropTypes.string.isRequired,
     })
   ),
