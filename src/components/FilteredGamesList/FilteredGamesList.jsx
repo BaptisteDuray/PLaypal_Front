@@ -1,34 +1,30 @@
 import PropTypes from 'prop-types';
 import './FilteredGamesList.scss';
+import { useLocation } from 'react-router-dom';
 import Game from '../GamesList/Game';
 import backgroundImage from '../../assets/image/background-img.jpg';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchGames } from '../../actions/search';
 
-// utiliser la liste de jeu filtré grâce au params
-const FilteredGamesList = ({ filteredGames }) => {
-  const dispatch = useDispatch();
-  //TODO afficher resultGameList
-  const gamesList = useSelector((state) => state.list);
+const FilteredGamesList = () => {
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const filteredGamesData = searchParams.get('data');
+  const filteredGames = filteredGamesData
+    ? JSON.parse(decodeURIComponent(filteredGamesData))
+    : [];
 
-  useEffect(() => {
-    dispatch(fetchGames());
-  }, [dispatch]);
-  console.log(filteredGames);
   return (
     <div className="game-list-desktop">
       <div className="gamesList">
-        <h1 className="title">Resultat de votre recherche</h1>
-        {gamesList.map((game) => (
+        <h1 className="title">Résultat de votre recherche</h1>
+        {filteredGames.map((game) => (
           <Game
             key={game.id}
             id={game.id}
-            name={game.Name}
-            description={game.Description}
+            name={game.name}
+            description={game.description}
             category={game.category}
-            price={game.Price}
-            status={game.Status}
+            price={game.price}
+            status={game.status}
             image={game.image}
           />
         ))}
@@ -39,19 +35,20 @@ const FilteredGamesList = ({ filteredGames }) => {
     </div>
   );
 };
+
 FilteredGamesList.propTypes = {
   filteredGames: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
-      Name: PropTypes.string.isRequired,
-      Description: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
       category: PropTypes.arrayOf(
         PropTypes.shape({
           name: PropTypes.string.isRequired,
         })
       ).isRequired,
-      Price: PropTypes.string.isRequired,
-      Status: PropTypes.string.isRequired,
+      price: PropTypes.string.isRequired,
+      status: PropTypes.string.isRequired,
       image: PropTypes.string.isRequired,
     })
   ),

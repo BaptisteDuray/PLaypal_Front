@@ -60,14 +60,14 @@ const InscriptionPage = () => {
           <Field
             identifier="firstnameInscription"
             placeholder="John"
-            label="*Prénom"
+            label="Prénom*"
             changeField={handleFieldChange}
             value={firstnameInscriptionValue}
           />
           <Field
             identifier="nameInscription"
             placeholder="DOE"
-            label="*Nom"
+            label="Nom*"
             changeField={handleFieldChange}
             type="text"
             value={nameInscriptionValue}
@@ -76,7 +76,7 @@ const InscriptionPage = () => {
           <Field
             identifier="emailInscription"
             placeholder="cluedo@playpal.fr"
-            label="*Mail"
+            label="Mail*"
             changeField={handleFieldChange}
             type="text"
             value={emailInscriptionValue}
@@ -85,7 +85,7 @@ const InscriptionPage = () => {
           <Field
             identifier="passwordInscription"
             placeholder="Créer un mot de passe"
-            label="*Mot de passe"
+            label="Mot de passe*"
             changeField={handleFieldChange}
             type="password"
             value={passwordInscriptionValue}

@@ -2,26 +2,39 @@ import './SearchBar.scss';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { Input, Form } from 'semantic-ui-react';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 
 const SearchBar = ({ games }) => {
-  const [searchValue, setSearchValue] = useState('');
-  const [filteredGames, setFilteredGames] = useState([]);
+  const [searchValue, setSearchValue] = useState(''); // stocker la valeur de recherche
+  const [filteredGames, setFilteredGames] = useState([]); // stocker les jeu filtrées
 
-  const navigate = useNavigate();
-  console.log(filteredGames); // voir la liste filtrée
+  const navigate = useNavigate(); // hook pour naviguer entre les pages
+  // on gére la soumission du formulaire
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const filteredGamesData = filteredGames.map((game) => ({
+      id: game.id,
+      name: game.Name,
+      description: game.Description,
+      category: game.category,
+      price: game.Price,
+      status: game.Status,
+      image: game.image,
+    }));
+    // navigation du resultat du filtre vers une autre page grâce à l'url
+    navigate(
+      `/recherche-de-jeux?data=${encodeURIComponent(
+        JSON.stringify(filteredGamesData)
+      )}`
+    );
+  };
 
+  // RENDU
   return (
     <div className="SectionSearch">
       <h1>Louez-les tous !</h1>
       <div className="SearchBar">
-        <Form
-          onSubmit={(event) => {
-            event.preventDefault();
-            // TODO mettre le bon nom de la page
-            navigate('/recherche-de-jeux', { filteredGames });
-          }}
-        >
+        <Form onSubmit={handleSubmit}>
           <Input
             icon="search"
             iconPosition="right"
@@ -39,12 +52,6 @@ const SearchBar = ({ games }) => {
           />
         </Form>
       </div>
-      {/* TEST ( a mettre sur une autre page list) Afficher la liste filtrée de jeux */}
-      <ul>
-        {filteredGames.map((game) => (
-          <li key={game.id}>{game.name}</li>
-        ))}
-      </ul>
     </div>
   );
 };
@@ -53,7 +60,16 @@ SearchBar.propTypes = {
   games: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
-      name: PropTypes.string.isRequired,
+      Name: PropTypes.string.isRequired,
+      Description: PropTypes.string.isRequired,
+      category: PropTypes.arrayOf(
+        PropTypes.shape({
+          name: PropTypes.string.isRequired,
+        })
+      ).isRequired,
+      Price: PropTypes.string.isRequired,
+      Status: PropTypes.string.isRequired,
+      image: PropTypes.string.isRequired,
     })
   ).isRequired,
 };
