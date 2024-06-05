@@ -21,6 +21,9 @@ const SearchBar = () => {
               console.log('submit');
 
               dispatch(submitSearch());
+
+              const action = changeInputMessage('');
+              dispatch(action);
             }}
           >
             <FormField>

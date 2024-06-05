@@ -5,6 +5,7 @@ import backgroundImage from '../../assets/image/background-img.jpg';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchGames } from '../../actions/search';
+import { addItemToFav, addItemToLoc } from '../../actions/search';
 
 const GamesList = () => {
   const dispatch = useDispatch();

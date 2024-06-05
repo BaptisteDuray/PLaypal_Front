@@ -21,6 +21,13 @@ const ContactPage = () => {
   const handleFieldChange = (identifier, newValue) => {
     dispatch(changeSettingsContact(newValue, identifier));
   };
+  const vider = () => {
+    dispatch(changeSettingsContact('', 'firstname'));
+    dispatch(changeSettingsContact('', 'name'));
+    dispatch(changeSettingsContact('', 'emailContact'));
+    dispatch(changeSettingsContact('', 'message'));
+    dispatch(changeSettingsContact('', 'company'));
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -39,6 +46,8 @@ const ContactPage = () => {
 
     // AFFICHAGE MESSAGE Définir formSubmitted sur true après une soumission réussie
     setFormSubmitted(true);
+
+    vider();
   };
 
   return (
