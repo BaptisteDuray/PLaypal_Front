@@ -4,6 +4,7 @@ import {
   FETCH_RENT_GAMES,
   FETCH_FAVORITE_GAMES,
   FETCH_GAMES,
+  fetchRentGames,
   saveGames,
   saveFavoriteGames,
   saveRentGames,
@@ -116,8 +117,9 @@ const gamesListMiddleware = (store) => (next) => (action) => {
         )
 
         .then((response) => {
-          console.log(response);
+          console.log('TOTO', response.data);
           // store.dispatch(addItemToLoc());
+          console.log();
           store.dispatch(fetchRentGames(response.data));
         })
         .catch((error) => {

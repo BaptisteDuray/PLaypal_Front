@@ -9,7 +9,7 @@ import './LocationPage.scss';
 const LocationPage = () => {
   const itemsLoc = useSelector((state) => state.itemsLoc);
   const isLogged = useSelector((state) => state.logged);
-
+  console.log(typeof itemsLoc);
   return (
     <>
       {isLogged ? (

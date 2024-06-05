@@ -53,7 +53,7 @@ const Game = () => {
         <div className="reservation">
           <label htmlFor="reservation">Je loue </label>
           <select name="reservation" id="reservation">
-            <option value="option1">pour 72 heures</option>
+            {/* <option value="option1">pour 72 heures</option> */}
             <option value="option2">pour 1 semaine</option>
           </select>
           <strong className="price-games-list">{gameData.price}</strong>
