@@ -48,7 +48,8 @@ const Game = ({ name, description, category, price, status, image, id }) => {
       </div>
 
       <div className="informations">
-        <h3>{name}</h3>
+        <h3 className="h3">{name}</h3>
+        <h4 className="h4">{name}</h4>
         <p>{description}</p>
         <p className="tags-games-list">
           {category && typeof category === 'object' && category.name

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import './GamesList.scss';
 import Game from './Game';
-
+import './Game.scss';
 import backgroundImage from '../../assets/image/background-img.jpg';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
