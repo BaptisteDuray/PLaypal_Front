@@ -7,7 +7,7 @@ import { findGame } from '../../Selector/games';
 import './GamePage.scss';
 // eslint-disable-next-line import/order
 import { useParams } from 'react-router';
-import defaultImage from '../../assets/icon/pawn-icon.png';
+import defaultImage from '../../assets/image/126163.jpg';
 import iconFav from '../../assets/icon/fav2.png';
 import { addItemToFav, addItemToLoc } from '../../actions/search';
 
@@ -38,7 +38,7 @@ const Game = () => {
         <div className="available-tag">{gameData.status}</div>
 
         <div className="game-image">
-          <img src={gameData.image} alt="la boite du jeu" />
+          <img src={defaultImage} alt="la boite du jeu" />
         </div>
       </div>
 

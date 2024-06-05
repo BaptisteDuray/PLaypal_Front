@@ -7,7 +7,6 @@ const contactMiddleware = (store) => (next) => (action) => {
       axios
         .post('https://backend.baptisteduray-server.eddi.cloud/api/contact/', {
           Firstname: store.getState().firstname,
-
           Name: store.getState().name,
           Company: store.getState().company,
           mail: store.getState().emailContact,

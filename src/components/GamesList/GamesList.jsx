@@ -13,7 +13,7 @@ const GamesList = () => {
   useEffect(() => {
     dispatch(fetchGames());
   }, [dispatch]);
-
+  console.log(gamesList);
   return (
     <div className="game-list-desktop">
       <div className="gamesList">

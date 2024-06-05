@@ -26,6 +26,7 @@ const initialState = {
   firstnameInscription: '',
   nameInscription: '',
   emailInscription: '',
+  passwordInscription: '',
   emailContact: '',
   messageInscription: '',
   // contactNumber: '',
@@ -115,6 +116,11 @@ const reducer = (state = initialState, action = {}) => {
         return {
           ...state,
           emailInscription: action.value,
+        };
+      } else if (action.identifier === 'passwordInscription') {
+        return {
+          ...state,
+          passwordInscription: action.value,
         };
       } else if (action.identifier === 'attachment') {
         return {
