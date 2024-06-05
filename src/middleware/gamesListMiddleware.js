@@ -103,7 +103,7 @@ const gamesListMiddleware = (store) => (next) => (action) => {
             date_fin: action.payload.date_fin,
             contentRents: [
               {
-                game: action.payload.id,
+                game: action.payload.gameData.id,
               },
             ],
           },
@@ -117,8 +117,8 @@ const gamesListMiddleware = (store) => (next) => (action) => {
 
         .then((response) => {
           console.log(response);
-          store.dispatch(addItemToLoc());
-          store.dispatch(saveRentGames(response.data));
+          // store.dispatch(addItemToLoc());
+          store.dispatch(fetchRentGames(response.data));
         })
         .catch((error) => {
           console.log(error);
