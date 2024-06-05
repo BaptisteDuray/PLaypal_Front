@@ -19,6 +19,11 @@ const Settings = () => {
 
   const dispatch = useDispatch();
 
+  const vider = () => {
+    dispatch(changeSettingsField('', 'email'));
+    dispatch(changeSettingsField('', 'password'));
+  };
+
   return (
     <div className="settings">
       <form
@@ -29,6 +34,7 @@ const Settings = () => {
           /* on envoie une action, qui déclenchera une requete en passant par
         authMiddleware */
           dispatch(submitLogin());
+          vider();
         }}
       >
         <Field
