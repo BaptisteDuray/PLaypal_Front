@@ -1,59 +1,76 @@
 import './SearchBar.scss';
+import PropTypes from 'prop-types';
+import { useState } from 'react';
+import { Input, Form } from 'semantic-ui-react';
+import { useNavigate } from 'react-router-dom';
 
-import { useSelector, useDispatch } from 'react-redux';
+const SearchBar = ({ games }) => {
+  const [searchValue, setSearchValue] = useState(''); // stocker la valeur de recherche
+  const [filteredGames, setFilteredGames] = useState([]); // stocker les jeu filtrées
 
-import { Input, Form, FormField, Segment } from 'semantic-ui-react';
+  const navigate = useNavigate(); // hook pour naviguer entre les pages
+  // on gére la soumission du formulaire
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const filteredGamesData = filteredGames.map((game) => ({
+      id: game.id,
+      name: game.Name,
+      description: game.Description,
+      category: game.category,
+      price: game.Price,
+      status: game.Status,
+      image: game.image,
+    }));
+    // navigation du resultat du filtre vers une autre page grâce à l'url
+    navigate(
+      `/recherche-de-jeux?data=${encodeURIComponent(
+        JSON.stringify(filteredGamesData)
+      )}`
+    );
+  };
 
-import { changeInputMessage, submitSearch } from '../../actions/search';
-
-const SearchBar = () => {
-  const value = useSelector((state) => state.inputMessage);
-
-  const dispatch = useDispatch();
   return (
     <div className="SectionSearch">
       <h1>Louez-les tous !</h1>
       <div className="SearchBar">
-        <Segment>
-          <Form
-            onSubmit={(event) => {
-              event.preventDefault();
-              console.log('submit');
-
-              dispatch(submitSearch());
-
-              const action = changeInputMessage('');
-              dispatch(action);
+        <Form onSubmit={handleSubmit}>
+          <Input
+            icon="search"
+            iconPosition="right"
+            placeholder="Rechercher un jeu"
+            value={searchValue}
+            onChange={(event) => {
+              setSearchValue(event.target.value);
+              const filteredGame = games.filter((game) =>
+                game.Name.toLowerCase().includes(
+                  event.target.value.toLowerCase()
+                )
+              );
+              setFilteredGames(filteredGame);
             }}
-          >
-            <FormField>
-              <Input
-                icon="search"
-                iconPosition="right"
-                placeholder="Rechercher un jeu"
-                value={value}
-                onChange={(event) => {
-                  // enregistrer event.target.value dans le champ inputMessage du state
-                  // => pour modifier le state dans un store redux, il faut dispatch une
-                  // action
-                  //
-                  // 3 étapes :
-                  // - ajouter l'action dans l'annuaire
-                  // - écrire le traitement de cette action dans le reducer
-                  // - utiliser useDispatch dans le composant concerné
-                  // Note : si on réutilise une action déjà existante, il y a juste la
-                  // 3e étape
-
-                  const action = changeInputMessage(event.target.value);
-                  dispatch(action);
-                }}
-              />
-            </FormField>
-          </Form>
-        </Segment>
+          />
+        </Form>
       </div>
     </div>
   );
+};
+
+SearchBar.propTypes = {
+  games: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      Name: PropTypes.string.isRequired,
+      Description: PropTypes.string.isRequired,
+      category: PropTypes.arrayOf(
+        PropTypes.shape({
+          name: PropTypes.string.isRequired,
+        })
+      ).isRequired,
+      Price: PropTypes.string.isRequired,
+      Status: PropTypes.string.isRequired,
+      image: PropTypes.string.isRequired,
+    })
+  ).isRequired,
 };
 
 export default SearchBar;

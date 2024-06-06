@@ -1,15 +1,20 @@
 import './Home.scss';
 import { Link } from 'react-router-dom';
-
+import { useSelector } from 'react-redux';
 import SearchBar from '../SearchBar/SearchBar';
 import CategoriesButton from '../CategoriesButton/CategoriesButton';
 import CardGame from '../CardGame/CardGame';
 import MenuFooter from '../MenuFooter/MenuFooter';
+import { fetchGames } from '../../actions/search';
+import { useEffect, useState } from 'react';
 
 const Home = () => {
+  // on recupere liste jeu de l'api
+  const games = useSelector((state) => state.list);
+
   return (
     <>
-      <SearchBar />
+      <SearchBar games={games} />
 
       <Link className="CardLink" to="/Catégories">
         <h2>Ton type de jeu</h2>

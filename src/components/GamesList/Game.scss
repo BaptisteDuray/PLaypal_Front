@@ -33,12 +33,15 @@
   .informations {
     margin: 10px;
     width: 70%;
+    overflow: hidden; /* Couper le texte qui dépasse */
+
     h3 {
       font-family: 'Alfa Slab One', serif;
       color: $primary-color;
     }
 
     p {
+      white-space: nowrap; /* Empêcher le texte de passer à la ligne */
       margin-top: 15px;
       color: $primary-color;
       font-family: 'Akshar', sans-serif;

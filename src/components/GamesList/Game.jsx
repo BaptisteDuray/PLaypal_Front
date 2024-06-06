@@ -69,7 +69,7 @@ const Game = ({ name, description, category, price, status, image, id }) => {
   );
 };
 
-// TODO verification des proptypes
+// verification des proptypes
 
 // Game.propTypes = {
 //   name: PropTypes.string.isRequired,
