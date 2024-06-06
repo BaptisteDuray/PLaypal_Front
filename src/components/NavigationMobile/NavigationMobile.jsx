@@ -5,8 +5,16 @@ import fav from '../../assets/icon/fav2.png';
 import search from '../../assets/icon/loupe-icone2.png';
 import loc from '../../assets/icon/agenda-icon2.png';
 import connect from '../../assets/icon/avatar2.png';
+import { logout } from '../../actions/search';
+import { useSelector, useDispatch } from 'react-redux';
 
 const NavigationMobile = () => {
+  const isLoggedIn = useSelector((state) => state.logged);
+
+  const dispatch = useDispatch();
+  const handleLogout = () => {
+    dispatch(logout());
+  };
   return (
     <div className="NavigationMobile">
       <Link className="BlocIcon" to="/liste-de-jeux">
@@ -28,9 +36,13 @@ const NavigationMobile = () => {
         <img src={loc} alt="agenda" />
         <span>Mes Locations</span>
       </Link>
-      <Link className="BlocIcon" to="/connexion">
+      <Link
+        className="BlocIcon"
+        to={isLoggedIn ? '/' : '/connexion'}
+        onClick={isLoggedIn ? handleLogout : undefined}
+      >
         <img src={connect} alt="compte" />
-        <span>connexion</span>
+        <span>{isLoggedIn ? 'déconnexion' : 'connexion'}</span>
       </Link>
     </div>
   );

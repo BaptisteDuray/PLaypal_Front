@@ -29,6 +29,14 @@ const InscriptionPage = () => {
     dispatch(changeSettingsInscription(newValue, identifier));
   };
 
+  const vider = () => {
+    dispatch(changeSettingsInscription('', 'firstnameInscription'));
+    dispatch(changeSettingsInscription('', 'nameInscription'));
+    dispatch(changeSettingsInscription('', 'emailInscription'));
+    dispatch(changeSettingsInscription('', 'passwordInscription'));
+    dispatch(changeSettingsInscription('', 'attachment'));
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -51,6 +59,8 @@ const InscriptionPage = () => {
     dispatch(submitInscription());
     // AFFICHAGE MESSAGE Définir formSubmitted sur true après une soumission réussie
     setFormSubmitted(true);
+
+    vider();
   };
 
   return (

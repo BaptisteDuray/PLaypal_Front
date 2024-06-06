@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import './HeaderButton.scss';
-
+import { logout } from '../../actions/search';
 import { useSelector, useDispatch } from 'react-redux';
 
 const HeaderButton = ({}) => {

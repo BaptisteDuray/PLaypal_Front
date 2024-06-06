@@ -4,6 +4,7 @@ import {
   FETCH_RENT_GAMES,
   FETCH_FAVORITE_GAMES,
   FETCH_GAMES,
+  fetchRentGames,
   saveGames,
   saveFavoriteGames,
   saveRentGames,
@@ -12,6 +13,7 @@ import {
   addItemToLoc,
   ADD_ITEM_TO_LOC,
   fetchFavoriteGames,
+  DELETE_FROM_FAV,
 } from '../actions/search';
 
 const gamesListMiddleware = (store) => (next) => (action) => {
@@ -73,6 +75,26 @@ const gamesListMiddleware = (store) => (next) => (action) => {
         });
 
       break;
+    case 'DELETE_FROM_FAV':
+      const { id } = action.payload;
+      axios
+        .delete(
+          `https://backend.baptisteduray-server.eddi.cloud/api/favoris/${id}`,
+          {
+            headers: {
+              Authorization: `Bearer ${store.getState().token}`,
+            },
+          }
+        )
+        .then((response) => {
+          console.log('Élément supprimé des favoris', response.data);
+          store.dispatch(fetchFavoriteGames(response.data));
+        })
+        .catch((error) => {
+          console.error('Erreur lors de la suppression des favoris', error);
+        });
+      break;
+
     case FETCH_RENT_GAMES:
       axios
         .get(
@@ -116,8 +138,9 @@ const gamesListMiddleware = (store) => (next) => (action) => {
         )
 
         .then((response) => {
-          console.log(response);
+          console.log('TOTO', response.data);
           // store.dispatch(addItemToLoc());
+          console.log();
           store.dispatch(fetchRentGames(response.data));
         })
         .catch((error) => {
