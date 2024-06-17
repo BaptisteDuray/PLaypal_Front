@@ -1,12 +1,6 @@
-// Page detail d'un jeu
-// quand on clique sur la carte d'un jeu
-
+import React, { useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { findGame } from '../../Selector/games';
-
 import './GamePage.scss';
-// eslint-disable-next-line import/order
-import { useParams } from 'react-router';
 import defaultImage from '../../assets/image/126163.jpg';
 import iconFav from '../../assets/icon/fav2.png';
 import {
@@ -16,29 +10,35 @@ import {
 } from '../../actions/search';
 
 const Game = () => {
-  // trouver le jeux grace a son url (on utilise des parametre)
-  const { slug } = useParams();
   const gameData = useSelector((state) => state.selectedGame);
+  const dispatch = useDispatch();
+  const favorites = useSelector((state) => state.itemsFav || []);
+  const memoizedFavorites = useMemo(() => favorites, [favorites]);
 
-  console.log('Jeu trouvé :', slug);
-  console.log(gameData);
-
-  // TODO fav et loc
-
-  const itemsLocValue = useSelector((state) => state.itemsLoc);
+  const handleFav = (event) => {
+    event.preventDefault();
+    if (
+      gameData &&
+      memoizedFavorites.some(
+        (favGame) => favGame.gameData && favGame.gameData.id === gameData.id
+      )
+    ) {
+      dispatch(deleteFromFav(gameData));
+    } else if (gameData) {
+      dispatch(addItemToFav(gameData));
+    }
+  };
 
   const tonCalculDeDate = () => {
     const currentDate = new Date();
-    // Ajouter 7 jours à la date actuelle, par exemple
     const endDate = new Date(currentDate.setDate(currentDate.getDate() + 7));
     return endDate;
   };
 
-  const dispatch = useDispatch();
   return (
     <article className="cardgame-page">
       <div className="article-desktop-left">
-        <h3>{gameData?.name || 'Nom du jeu non défini'}</h3>
+        <h3>{gameData.name || 'Nom du jeu non défini'}</h3>
         <div className="available-tag">{gameData.status}</div>
 
         <div className="game-image">
@@ -50,14 +50,15 @@ const Game = () => {
         <div className="informations">
           <p>{gameData.description}</p>
           <p className="tags-games-list">
-            {gameData.category?.name || 'Catégorie non définie'}
+            {gameData.category && gameData.category.name
+              ? gameData.category.name
+              : 'Catégorie non définie'}
           </p>
         </div>
 
         <div className="reservation">
           <label htmlFor="reservation">Je loue </label>
           <select name="reservation" id="reservation">
-            {/* <option value="option1">pour 72 heures</option> */}
             <option value="option2">pour 1 semaine</option>
           </select>
           <strong className="price-games-list">{gameData.price}</strong>
@@ -69,9 +70,6 @@ const Game = () => {
             type="button"
             onClick={(event) => {
               event.preventDefault();
-              console.log('submit');
-              /* on envoie une action, qui déclenchera une requete en passant par
-authMiddleware */
               dispatch(
                 addItemToLoc({
                   date_debut: new Date(),
@@ -92,14 +90,15 @@ authMiddleware */
           <button
             className="btn-back-fav"
             type="button"
-            onClick={(event) => {
-              event.preventDefault();
-              console.log('submit');
-              /* on envoie une action, qui déclenchera une requete en passant par
-authMiddleware (ne pas tenir compte de ce que j'ai ecrit)*/
-              dispatch(addItemToFav(gameData));
-              console.log('BANANE', addItemToFav(gameData));
-            }}
+            onClick={handleFav}
+            // onClick={(event) => {
+            //   event.preventDefault();
+            //   console.log('submit');
+            //   /* on envoie une action, qui déclenchera une requete en passant par
+            // authMiddleware (ne pas tenir compte de ce que j'ai ecrit)*/
+            //   dispatch(deleteFromFav(gameData));
+            //   console.log('BANANE', deleteFromFav(gameData));
+            // }}
           >
             <img src={iconFav} alt="ajouter à mes favoris" />
           </button>

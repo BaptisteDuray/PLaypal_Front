@@ -22,6 +22,8 @@ import FavoritePage from '../FavoritePage/FavoritePage';
 import LocationPage from '../LocationsPage/LocationPage';
 import ErrorPage from '../ErrorPage/ErrorPage';
 import FilteredGamesList from '../FilteredGamesList/FilteredGamesList';
+import Cgv from '../Cgv/Cgv';
+import MentionsLegales from '../../Mentions/Mentions';
 
 function App() {
   const dispatch = useDispatch();
@@ -48,6 +50,8 @@ function App() {
         <Route path="/apropos" element={<Apropos />} />
         <Route path="/favoris" element={<FavoritePage />} />
         <Route path="/locations" element={<LocationPage />} />
+        <Route path="/conditionsgenerales" element={<Cgv />} />
+        <Route path="/mentionslegales" element={<MentionsLegales />} />
         <Route path="/recherche-de-jeux" element={<FilteredGamesList />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>

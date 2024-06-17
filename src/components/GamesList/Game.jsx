@@ -1,20 +1,33 @@
-import './Game.scss';
+// const handleFav = (event) => {
+//   event.preventDefault();
+//   dispatch(addItemToFav);
+// };
+
+import React, { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import iconFav from '../../assets/icon/fav2.png';
-// image afficher par defaut si pas d'image
 import defaultImage from '../../assets/image/126163.jpg';
-import { addItemToFav, selectGame } from '../../actions/search';
+import { addItemToFav, selectGame, deleteFromFav } from '../../actions/search';
 
 const Game = ({ name, description, category, price, status, image, id }) => {
-  const favorites = useSelector((state) => state.itemsFav);
-
+  const favorites = useSelector((state) => state.itemsFav || []);
   const dispatch = useDispatch();
+
+  // Utilisation de useMemo pour mémoïser favorites
+  const memoizedFavorites = useMemo(() => favorites, [favorites]);
 
   const handleFav = (event) => {
     event.preventDefault();
-    dispatch(addItemToFav);
+
+    if (memoizedFavorites.some((favGame) => favGame.id === id)) {
+      dispatch(deleteFromFav(id));
+    } else {
+      dispatch(
+        addItemToFav({ name, description, category, price, status, image, id })
+      );
+    }
   };
 
   return (

@@ -10,10 +10,10 @@ const MenuFooter = () => {
           <li>A propos</li>
         </Link>
 
-        <Link className="btnFooter" to="/">
+        <Link className="btnFooter" to="/conditionsgenerales">
           <li>Conditions générales de vente</li>
         </Link>
-        <Link className="btnFooter" to="/">
+        <Link className="btnFooter" to="/mentionslegales">
           <li>Mentions Légales</li>
         </Link>
       </ul>
